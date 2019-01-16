@@ -1,4 +1,4 @@
-# How *NOT* to use a phone
+## How *NOT* to use a phone
 
 Design explorations of smartphones as basis for DIY alternative controllers.
 
