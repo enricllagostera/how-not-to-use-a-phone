@@ -9,7 +9,7 @@ Pros:
 Cons:
 
 - Tricky and case specific solutions
-- Performance is quite laggy on the emulator / companion app
+- Performance is quite slow on the emulator / companion app
 - Very few options to customize built-in blocks
 - Difficult to replicate designs involving multiple components (no prefabbing)
 
