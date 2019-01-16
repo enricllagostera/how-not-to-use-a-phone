@@ -1,3 +1,8 @@
+---
+title: 2019-01-16 logs
+layout: post
+---
+
 I did some experimentation with MIT App Inventor today.
 
 Pros:
