@@ -1,5 +1,3 @@
-# Hello, this is just a test
-
 I did some experimentation with MIT App Inventor today.
 
 Pros:
