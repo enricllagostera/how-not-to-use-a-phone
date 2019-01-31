@@ -1,0 +1,17 @@
+{
+  "name": "pendulum",
+  "version": "0.0.1",
+  "description": "a pendulum test with p5, tone and other libraries",
+  "main": "index.js",
+  "dependencies": {
+    "nosleep.js": "^0.9.0",
+    "p5": "^0.7.3",
+    "tone": "^13.4.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
