@@ -2,5 +2,7 @@ title: how *not* to use a phone
 author: Enric Llagostera
 description: Design explorations of smartphones as basis for DIY alternative controllers. A independent study project for the Winter 2019 term.
 email: enricllagostera@gmail.com
-remote_theme: jekyll/minima
+remote_theme: pmarsceill/just-the-docs
+search_enabled: true
+#jekyll/minima
 show_excerpts: false
