@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seaBPM: 60
   healthBaseRate: 0
-  newCoralCooldown: 2000
+  newCoralCooldown: 500
   chanceToStartNewCoral: 1
   healthGradient:
     serializedVersion: 2

@@ -50,9 +50,15 @@ namespace Shellphone
                 Debug.Log("START NEW ROOT CORAL");
                 coral = GameObject.Instantiate<Coral>(prefabCoral, LocateNewCoral(), Quaternion.identity);
                 coral.depthLevel = 0;
-                coral.seeds = 20;
-                coral.transform.SetParent(this.transform);
-                coral.baseAngle = Random.Range(0, 360f);
+                var random = (Vector2)Random.insideUnitCircle.normalized;
+                Vector2 gravity = new Vector2();
+#if UNITY_EDITOR
+                gravity = debugGravity.normalized;
+#elif UNITY_ANDROID
+            gravity = new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y).normalized;
+#endif
+                var up = random + gravity * 2f;
+                coral.transform.up = up.normalized;
             }
             else
             {
@@ -61,7 +67,6 @@ namespace Shellphone
                 LocateCoralPart(coral, parent);
                 coral.depthLevel = parent.depthLevel + 1;
                 coral.parent = parent;
-                coral.transform.SetParent(parent.transform, false);
                 parent.DropSeed();
             }
             coral.sea = this;
@@ -69,37 +74,11 @@ namespace Shellphone
 
         private void LocateCoralPart(Coral coral, Coral parent)
         {
-            Vector2 basePos = Vector2.up * 0.5f;
-            Vector2 direction = -((Vector2)coral.transform.localPosition - basePos);
-            float angle = Vector2.Angle(Vector2.up, direction);
-            var rotation = Quaternion.AngleAxis(Random.Range(-100f, 100f), Vector3.forward);
-
-
-
-
-#if UNITY_EDITOR
-            Vector2 gravityOffset = debugGravity.normalized;
-#else
-            Vector2 gravityOffset = new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y).normalized;
-            float gravity = Vector2.Angle(Vector2.up, gravityOffset);
-#endif
-
-            print(rotation.eulerAngles);
-            coral.transform.position = (gravityOffset.normalized + (Vector2)rotation.eulerAngles.normalized) * 0.25f;
-
-            /* 
-                        
-            #if UNITY_EDITOR
-                        float gravity = Vector2.Angle(Vector2.up, debugGravity);
-            #else
-                        float gravity = Vector2.Angle(Vector2.up, gravityOffset);
-            #endif
-                        print(gravity);
-                        float randomOffset = Random.Range(-15f, 15f);
-
-                        coral.baseAngle = gravity;
-                        coral.transform.Rotate(0, 0, coral.baseAngle);
-                        */
+            var parentDirection = Vector2.up;
+            var randomVector = (Vector2)Random.insideUnitCircle.normalized;
+            var pos = parentDirection * 3f + randomVector;
+            coral.transform.position = pos.normalized * 0.5f;
+            coral.transform.SetParent(parent.transform, false);
         }
 
         private Vector3 LocateNewCoral()

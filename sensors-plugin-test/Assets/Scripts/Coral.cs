@@ -29,7 +29,8 @@ namespace Shellphone
 
             if (IsRoot())
             {
-                baseScale = Random.Range(info.baseStartScale * (1f - info.baseScaleRange), info.baseStartScale * (1f + info.baseScaleRange));
+                baseScale = Random.Range(info.startScale.x, info.startScale.y);
+                seeds = Mathf.CeilToInt(Random.Range(info.startSeeds.x, info.startSeeds.y));
             }
             else
             {
@@ -49,7 +50,7 @@ namespace Shellphone
 
         private float CalculateTimeToNextRoll()
         {
-            return Time.realtimeSinceStartup + Random.Range(info.branchCooldown * (1f - info.branchCooldownRange), info.branchCooldown * (1f + info.branchCooldownRange));
+            return Time.realtimeSinceStartup + Random.Range(info.branchCooldownRange.x, info.branchCooldownRange.y);
         }
 
         void Update()
