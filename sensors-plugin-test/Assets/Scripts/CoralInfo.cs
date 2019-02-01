@@ -11,6 +11,7 @@ public class CoralInfo : ScriptableObject
     public float branchCooldownRange = 0.2f;
     public float stopCooldown = 10000;
     public float baseChanceToLeaf = 0.1f;
-    public Gradient initialColors;
     public float branchScaleDecay = 0.75f;
+    public int maxDepthLevel = 10;
+    public Gradient initialColors;
 }

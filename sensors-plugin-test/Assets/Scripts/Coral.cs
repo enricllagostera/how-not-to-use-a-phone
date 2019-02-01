@@ -12,20 +12,22 @@ namespace Shellphone
         public Coral prefabCoral;
         public CoralInfo info;
         public Coral parent;
-        public bool isRoot;
+        public int depthLevel;
         public bool isLeaf;
         public bool hasStopped;
         public float nextRollTime;
         public float baseScale;
+        public float baseAngle;
         public float chanceToBranch;
         public float chanceToStop;
         private SpriteRenderer _sprite;
+        public int seeds;
 
         void Start()
         {
             _sprite = GetComponent<SpriteRenderer>();
-            _sprite.color = info.initialColors.Evaluate(sea.health);
-            if (isRoot)
+
+            if (IsRoot())
             {
                 baseScale = Random.Range(info.baseStartScale * (1f - info.baseScaleRange), info.baseStartScale * (1f + info.baseScaleRange));
             }
@@ -40,6 +42,11 @@ namespace Shellphone
             nextRollTime = CalculateTimeToNextRoll();
         }
 
+        public bool IsRoot()
+        {
+            return depthLevel == 0;
+        }
+
         private float CalculateTimeToNextRoll()
         {
             return Time.realtimeSinceStartup + Random.Range(info.branchCooldown * (1f - info.branchCooldownRange), info.branchCooldown * (1f + info.branchCooldownRange));
@@ -47,11 +54,13 @@ namespace Shellphone
 
         void Update()
         {
+            _sprite.color = info.initialColors.Evaluate(1f - Utils.Remap(depthLevel, 0f, info.maxDepthLevel, 0f, 1f));
+            _sprite.sortingOrder = depthLevel;
             if (hasStopped)
             {
+                this.enabled = false;
                 return;
             }
-
             if (nextRollTime <= Time.realtimeSinceStartup)
             {
                 nextRollTime = CalculateTimeToNextRoll();
@@ -70,14 +79,52 @@ namespace Shellphone
             }
         }
 
+        public void DropSeed()
+        {
+            if (!IsRoot())
+            {
+                parent.DropSeed();
+            }
+            else
+            {
+                seeds--;
+                if (seeds <= 0)
+                {
+                    this.hasStopped = true;
+                    this.gameObject.name += " IDLE-ROOT";
+                    var allCorals = this.GetComponentsInChildren<Coral>();
+                    foreach (var coral in allCorals)
+                    {
+                        coral.hasStopped = true;
+                        coral.gameObject.name += " STOPPED";
+                    }
+                }
+            }
+        }
+
         private void UpdateChanceToBranch()
         {
-            chanceToBranch = info.baseChanceToBranch;
+            if (depthLevel < info.maxDepthLevel)
+            {
+                chanceToBranch = info.baseChanceToBranch;
+            }
+            else
+            {
+                chanceToBranch = Mathf.Infinity;
+            }
+
         }
 
         private void UpdateChanceToStop()
         {
-            chanceToStop = info.baseChanceToStop;
+            if (depthLevel < info.maxDepthLevel)
+            {
+                chanceToStop = info.baseChanceToStop;
+            }
+            else
+            {
+                chanceToStop = 0f;
+            }
         }
 
         private bool WillStopBranching()
@@ -89,12 +136,12 @@ namespace Shellphone
         {
             return (chanceToBranch <= Random.value);
         }
-
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(transform.position, baseScale);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawRay(transform.position, sea.debugGravity);
         }
+
     }
 
 }

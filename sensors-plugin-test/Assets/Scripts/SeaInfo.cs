@@ -16,7 +16,8 @@ namespace Shellphone
         // all chance variables need to have a lower-equal than roll
         // and be between 0-1f
         public float chanceToStartNewCoral;
-        public Gradient backgroundPulse;
+        public Gradient healthGradient;
+        public Gradient swayGradient;
 
         public float CalculateAndSetChanceToStartNewCoral(float health)
         {
