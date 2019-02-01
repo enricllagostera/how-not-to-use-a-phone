@@ -1,9 +1,6 @@
----
-# My customized style for how not to use a phone
----
 
 @import "minima";
 
-body {
-    font-size: 30px;
-}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,700,700i,900|Open+Sans:400,400i,700,700i');
+
+$base-font-family : "Open Sans"
