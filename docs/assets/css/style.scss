@@ -2,6 +2,8 @@
 # style for how not to use a phone
 ---
 
+$brand-color: #ffcc00;
+
 @import "minima";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,700,700i,900|Open+Sans:400,400i,700,700i');
 
@@ -9,6 +11,7 @@ body {
     background-color: #74f1b7;
     font-family: "Open Sans", Arial, sans-serif;
 }
+
 h1, h2, h3, h4, h5 {
     font-family: Montserrat, Arial, sans-serif;
     font-weight: 700;
