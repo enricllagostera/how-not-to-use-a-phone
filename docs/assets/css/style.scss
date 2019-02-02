@@ -4,11 +4,11 @@
 
 $base-font-family: "Open Sans", arial, sans-serif;
 $base-font-size: 16px;
-$brand-color: #ff2f00;
-$background-color:#fcf5f5;
-$text-color: #060003;
-$grey-color: #ee5007;
-$orange-color:#ee5007;
+$brand-color: #0612a1;
+$background-color: #eed9ee;
+$text-color: #050305;
+$grey-color: #330668;
+$orange-color: #330668;
 
 
 @import "minima";
@@ -28,6 +28,7 @@ h3 {
 
 .site-title {
     font-weight: 900;
+    color: $brand-color !important;
 }
 
 .post-title {
