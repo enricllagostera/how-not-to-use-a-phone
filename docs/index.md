@@ -1,5 +1,6 @@
 ---
-title: how *not* to use a phone
+title: 
+list_title: Logs
 ---
 ## About
 

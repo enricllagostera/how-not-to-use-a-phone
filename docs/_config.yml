@@ -7,3 +7,4 @@ remote_theme: jekyll/minima
 #search_enabled: true
 #jekyll/minima
 show_excerpts: false
+header_pages: 
