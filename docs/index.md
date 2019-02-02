@@ -1,4 +1,5 @@
 ---
+title: About
 list_title: Logs
 ---
 
