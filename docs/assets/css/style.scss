@@ -3,23 +3,23 @@
 ---
 
 $base-font-family: "Open Sans", arial, sans-serif;
-$base-font-size: 16px;
-$brand-color: #8ab021;
+$base-font-size: 18px;
+$brand-color: #8518f9;
 $background-color: #fbfbfe;
-$text-color: #140f1c;
-$grey-color: #2a5700;
-$orange-color: #2a5700;
+$text-color: #161a15;
+$grey-color: #fd4c31;
+$orange-color: #fd4c31;
 
 
 @import "minima";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,700i,900');
 
 h1 {
-    font-weight: 700;
+    font-weight: 400;
 }
 
 h2 {
-    font-weight: 700;
+    font-weight: 400;
 }
 
 h3 {
@@ -27,7 +27,7 @@ h3 {
 }
 
 .site-title {
-    font-weight: 900;
+    font-weight: 300;
     color: $brand-color !important;
 }
 
