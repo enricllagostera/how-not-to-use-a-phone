@@ -23,7 +23,7 @@ h2 {
 }
 
 h3 {
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .site-title {
@@ -41,4 +41,8 @@ h1.page-heading {
 
 a:link, a:hover, a:visited {
     color: $brand-color !important;
+}
+
+.site-header {
+    border-top: 5px solid $brand-color;
 }
