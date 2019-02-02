@@ -7,19 +7,19 @@ $base-font-size: 16px;
 $brand-color: #ff2f00;
 $background-color:#fcf5f5;
 $text-color: #060003;
-$grey-color: #5b0d02;
-$orange-color:#5b0d02;
+$grey-color: #ee5007;
+$orange-color:#ee5007;
 
 
 @import "minima";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,700i,900');
 
 h1 {
-    font-weight: 900;
+    font-weight: 700;
 }
 
 h2 {
-    font-weight: 300;
+    font-weight: 700;
 }
 
 h3 {
@@ -27,9 +27,13 @@ h3 {
 }
 
 .site-title {
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .post-title {
-    font-weight: 300;
+    font-weight: 700;
+}
+
+h1.page-heading {
+    display:none;
 }
