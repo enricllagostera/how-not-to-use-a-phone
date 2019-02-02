@@ -2,17 +2,17 @@
 # style for how not to use a phone
 ---
 
-$base-font-family: "Fira Sans", arial, sans-serif;
+$base-font-family: "Open Sans", arial, sans-serif;
 $base-font-size: 18px;
-$brand-color: #b212f1;
-$background-color:#f4dafd;
+$brand-color: #ff2f00;
+$background-color:#f3d7bb;
 $text-color: #060003;
-$grey-color: #00511f;
-$orange-color:#b212f1;
+$grey-color: #8e155c;
+$orange-color:#8e155c;
 
 
 @import "minima";
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,400i,700,700i,900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,700i,900');
 
 h1 {
     font-weight: 900;
@@ -27,5 +27,9 @@ h3 {
 }
 
 .site-title {
+    font-weight: 300;
+}
+
+.post-title {
     font-weight: 300;
 }
