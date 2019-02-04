@@ -9,6 +9,6 @@ This project is focused on creating design explorations of smartphones as basis 
 
 Created by [Enric Llagostera](http://enric.llagostera.com.br), for an independent study project (Winter 2019) under the supervision of Rilla Khaled.
 
-![Shellphone concept sketches]({{site.baseurl/images/shellphone.jpg}})
+![Shellphone concept sketches]({{site.baseurl}}/images/shellphone.jpg)
 
 *Example of one of the experiment ides, the Shellphone.*
