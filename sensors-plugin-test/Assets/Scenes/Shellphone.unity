@@ -384,6 +384,7 @@ MonoBehaviour:
   isPlaying: 0
   curve: {fileID: 11400000, guid: 6c53d619b1a314f499cf64de06614edd, type: 2}
   player: {fileID: 807452552}
+  duration: 0
 --- !u!1 &902595409
 GameObject:
   m_ObjectHideFlags: 0
