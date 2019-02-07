@@ -11,24 +11,22 @@ namespace Shellphone
 {
     public class Sea : MonoBehaviour
     {
+        private float targetMood;
+        private SpriteRenderer _sprite;
         public SeaInfo info;
         public Coral prefabCoral;
-        [ProgressBar("Health Change Rate", 1f, ProgressBarColor.Red)] public float healthChangeRate;
-        public bool isCharging;
+        private float swayIndex;
+        [ProgressBar("Health", 1f, ProgressBarColor.Green)] public float health = 1f;
+        [ReadOnly] public bool isDead;
+        [ReadOnly] public bool isCharging;
         public float healthPerSecondModifier;
         public AnimationCurve healthRateCurve;
-        [ProgressBar("Health", 1f, ProgressBarColor.Green)] public float health = 1f;
         public float chanceToStartNewCoral = 1f;
-        public float swayIndex;
-        private SpriteRenderer _sprite;
-        public Vector3Var magneticData;
-        public Vector3Var accelerationData;
-        public FloatVar lightSensorData;
-        public FloatVar proximityData;
+
+        [Header("Mood logic")]
         [Slider(0f, 1f)] public float mood;
         [Slider(0f, 1f)] public float moodLimit;
         [Slider(0.1f, 5f)] public float moodChangeFactor;
-        private float targetMood;
         public MoodInfo sleepyMoodInfo, chirpyMoodInfo, moodInfo;
         public CurvePlayer warningVFX;
         [Header("Damage by movement logic")]
@@ -46,7 +44,13 @@ namespace Shellphone
         [Slider(0f, 8f)] public float debugProximity;
         [Slider(0f, 1f)] public float debugBatteryLevel;
         public bool debugCharging;
-        public bool isDead;
+
+        [Header("Sensors wiring")]
+        public Vector3Var magneticData;
+        public Vector3Var accelerationData;
+        public FloatVar lightSensorData;
+        public FloatVar proximityData;
+
 
         void Start()
         {
@@ -138,7 +142,6 @@ namespace Shellphone
             batteryLevel = SystemInfo.batteryLevel;
             isCharging = (SystemInfo.batteryStatus == BatteryStatus.Charging);
 #endif
-            healthChangeRate = 1f - batteryLevel;
             float applyRate = (isCharging) ? 1f : healthRateCurve.Evaluate(batteryLevel);
             health = Mathf.Lerp(health, health + applyRate, Time.deltaTime * healthPerSecondModifier);
             health = Mathf.Clamp01(health);

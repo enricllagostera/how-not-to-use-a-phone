@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startScale: {x: 1.4199718, y: 2.0919266}
   startSeeds: {x: 21.939032, y: 26.367125}
-  baseChanceToBranch: 0.01
-  baseChanceToStop: 0
-  branchCooldownRange: {x: 0.3613212, y: 2.1616023}
+  baseChanceToBranch: 0.05
+  baseChanceToStop: 0.01
+  branchCooldownRange: {x: 2.6197903, y: 4.4200716}
   stopCooldown: 10000
   branchScaleDecay: 0.75
   maxDepthLevel: 7
@@ -34,7 +34,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: -0.001
+      value: -0.01
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -44,4 +44,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  deadCleanupInterval: {x: 60.00003, y: 453.09384}
+  deadCleanupInterval: {x: 60.00003, y: 306.29333}

@@ -280,6 +280,7 @@ RectTransform:
   - {fileID: 1384670528}
   - {fileID: 1940345952}
   - {fileID: 1859484399}
+  - {fileID: 1459387423}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1089,6 +1090,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401239673}
   m_CullTransparentMesh: 0
+--- !u!1 &1459387422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1459387423}
+  - component: {fileID: 1459387426}
+  - component: {fileID: 1459387425}
+  - component: {fileID: 1459387424}
+  m_Layer: 5
+  m_Name: LightSensorValues (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1459387423
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459387422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 76981119}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 181.95, y: -1234}
+  m_SizeDelta: {x: 286.9, y: 91.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1459387424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459387422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17343a8a9918529458c879245d7be21a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1459387425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459387422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 2
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 000.00
+--- !u!222 &1459387426
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459387422}
+  m_CullTransparentMesh: 0
 --- !u!1 &1475583710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1361,8 @@ MonoBehaviour:
   info: {fileID: 11400000, guid: b9ae444079cad4d47a933a7b70f93a8a, type: 2}
   prefabCoral: {fileID: 4237234922024979635, guid: 01943979d8bbf4a4396d72d46621b382,
     type: 3}
-  healthChangeRate: 0
+  health: 1
+  isDead: 0
   isCharging: 0
   healthPerSecondModifier: 0.01
   healthRateCurve:
@@ -1304,13 +1398,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  health: 1
-  chanceToStartNewCoral: 1
-  swayIndex: 0
-  magneticData: {fileID: 11400000, guid: 9a9c9a05e2768bc47b97c137d7648a2f, type: 2}
-  accelerationData: {fileID: 11400000, guid: 4c52705240ad4ee4e84f54598ae1eb23, type: 2}
-  lightSensorData: {fileID: 11400000, guid: da84f120f948c6b45bb14bc9098e8730, type: 2}
-  proximityData: {fileID: 11400000, guid: fa007cd8ff24a7345a61f328e7d4a024, type: 2}
+  chanceToStartNewCoral: 0.8
   mood: 0
   moodLimit: 0.5
   moodChangeFactor: 0.58
@@ -1330,6 +1418,10 @@ MonoBehaviour:
   debugProximity: 8
   debugBatteryLevel: 1
   debugCharging: 1
+  magneticData: {fileID: 11400000, guid: 9a9c9a05e2768bc47b97c137d7648a2f, type: 2}
+  accelerationData: {fileID: 11400000, guid: 4c52705240ad4ee4e84f54598ae1eb23, type: 2}
+  lightSensorData: {fileID: 11400000, guid: da84f120f948c6b45bb14bc9098e8730, type: 2}
+  proximityData: {fileID: 11400000, guid: fa007cd8ff24a7345a61f328e7d4a024, type: 2}
 --- !u!1 &1859484398
 GameObject:
   m_ObjectHideFlags: 0
