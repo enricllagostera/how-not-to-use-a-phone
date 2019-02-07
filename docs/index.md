@@ -11,4 +11,4 @@ Created by [Enric Llagostera](http://enric.llagostera.com.br), for an independen
 
 ![Shellphone concept sketches]({{site.baseurl}}/images/shellphone.jpg)
 
-*Example of one of the experiment ides, the Shellphone.*
+*Example of one of the experiment ideas, the Shellphone.*
