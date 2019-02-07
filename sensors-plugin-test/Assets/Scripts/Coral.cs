@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using NaughtyAttributes;
 
 namespace Shellphone
 {
@@ -21,26 +22,40 @@ namespace Shellphone
         public float chanceToBranch;
         public float chanceToStop;
         private SpriteRenderer _sprite;
+        public float hueIndex;
         public int seeds;
+        [MinMaxSlider(0f, 1f)] public Vector2 saturation;
 
         void Start()
         {
             _sprite = GetComponent<SpriteRenderer>();
+            hueIndex = 0f;
 
             if (IsRoot())
             {
                 baseScale = Random.Range(info.startScale.x, info.startScale.y);
                 seeds = Mathf.CeilToInt(Random.Range(info.startSeeds.x, info.startSeeds.y));
+#if UNITY_EDITOR
+                hueIndex = Utils.Remap(sea.debugLight, 0f, 1000f, 0f, 1f); ;
+#else
+            hueIndex = Utils.Remap(sea.lightSensorData.value, 0f, 1000f, 0f, 1f);
+#endif
             }
             else
             {
                 baseScale = 1f * info.branchScaleDecay;
+                hueIndex = parent.hueIndex;
             }
             transform.localScale = Vector3.one * baseScale;
             chanceToBranch = 0f;
             chanceToStop = 0f;
             hasStopped = false;
             nextRollTime = CalculateTimeToNextRoll();
+
+
+
+            float value = 1f - Utils.Remap(depthLevel, 0f, info.maxDepthLevel, 0.2f, 0.8f);
+            _sprite.color = Random.ColorHSV(hueIndex, hueIndex, saturation.x, saturation.y, value, value);
         }
 
         public bool IsRoot()
@@ -55,7 +70,7 @@ namespace Shellphone
 
         void Update()
         {
-            _sprite.color = info.initialColors.Evaluate(1f - Utils.Remap(depthLevel, 0f, info.maxDepthLevel, 0f, 1f));
+
             _sprite.sortingOrder = depthLevel;
             if (hasStopped)
             {

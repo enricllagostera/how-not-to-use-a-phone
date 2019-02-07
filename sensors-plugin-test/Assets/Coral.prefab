@@ -48,13 +48,16 @@ MonoBehaviour:
   prefabCoral: {fileID: 4237234922024979635}
   info: {fileID: 11400000, guid: 620e3e0bc7ef8ec4597174ba389946c4, type: 2}
   parent: {fileID: 0}
-  isRoot: 0
+  depthLevel: 0
   isLeaf: 0
   hasStopped: 0
   nextRollTime: 0
   baseScale: 0
+  baseAngle: 0
   chanceToBranch: 0
   chanceToStop: 0
+  seeds: 0
+  saturation: {x: 0.83680135, y: 0.9428805}
 --- !u!212 &7347965423763877023
 SpriteRenderer:
   m_ObjectHideFlags: 0

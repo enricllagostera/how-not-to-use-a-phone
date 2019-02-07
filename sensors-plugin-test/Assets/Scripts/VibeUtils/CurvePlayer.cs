@@ -38,5 +38,12 @@ namespace VibeUtils
             isPlaying = true;
             player.isPlaying = false;
         }
+
+        internal void Stop()
+        {
+            timer = 0f;
+            isPlaying = false;
+            player.Stop();
+        }
     }
 }

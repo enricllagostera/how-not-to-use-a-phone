@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityAndroidSensors.Scripts.Utils.SmartVars;
 using UnityEngine;
+using VibeUtils;
 using Random = UnityEngine.Random;
 
 namespace Shellphone
@@ -16,8 +18,20 @@ namespace Shellphone
         public float swayIndex;
         private SpriteRenderer _sprite;
         public Vector3Var magneticData;
+        public FloatVar lightSensorData;
+        public FloatVar proximityData;
+
+        [Slider(0f, 1f)] public float mood;
+        [Slider(0f, 1f)] public float moodLimit;
+        [Slider(0.1f, 5f)] public float moodChangeFactor;
+
+        private float targetMood;
+        public MoodInfo sleepyMoodInfo, chirpyMoodInfo, moodInfo;
+        public CurvePlayer warningVFX;
 
         public Vector2 debugGravity;
+        public float debugLight;
+        [Slider(0f, 8f)] public float debugProximity;
 
         void Start()
         {
@@ -29,6 +43,8 @@ namespace Shellphone
         void Update()
         {
             // game logic
+            HandleProximity();
+            UpdateMood();
             UpdateChanceOfNewCoral();
             if (WillStartNewCoral())
             {
@@ -40,6 +56,47 @@ namespace Shellphone
             var healthColor = info.healthGradient.Evaluate(health);
             healthColor.a = swayIndex;
             _sprite.color = healthColor;
+        }
+
+        private void HandleProximity()
+        {
+            float proximity = 0f;
+#if UNITY_EDITOR
+            proximity = debugProximity;
+#else
+            proximity = proximityData.value;
+#endif
+
+            if (proximity >= 0.1f)
+            {
+                // it's ok
+                warningVFX.Stop();
+            }
+            else if (!warningVFX.isPlaying)
+            {
+                warningVFX.Play();
+                print("LET ME GO");
+            }
+        }
+
+        private void UpdateMood()
+        {
+#if UNITY_EDITOR
+            targetMood = Utils.Remap(debugLight, 0f, 1000f, 0f, 1f); ;
+#else
+            targetMood = Utils.Remap(lightSensorData.value, 0f, 1000f, 0f, 1f);
+#endif
+            mood = Mathf.Lerp(mood, targetMood, Time.deltaTime * moodChangeFactor);
+            if (mood <= moodLimit)
+            {
+                // set sleepy
+                moodInfo = sleepyMoodInfo;
+            }
+            else
+            {
+                // set chirpy
+                moodInfo = chirpyMoodInfo;
+            }
         }
 
         public void CreateCoral(Coral parent = null)
