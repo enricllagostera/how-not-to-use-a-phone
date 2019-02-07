@@ -25,12 +25,9 @@ namespace Shellphone
         public Vector3Var accelerationData;
         public FloatVar lightSensorData;
         public FloatVar proximityData;
-
         [Slider(0f, 1f)] public float mood;
         [Slider(0f, 1f)] public float moodLimit;
         [Slider(0.1f, 5f)] public float moodChangeFactor;
-
-
         private float targetMood;
         public MoodInfo sleepyMoodInfo, chirpyMoodInfo, moodInfo;
         public CurvePlayer warningVFX;
@@ -49,6 +46,7 @@ namespace Shellphone
         [Slider(0f, 8f)] public float debugProximity;
         [Slider(0f, 1f)] public float debugBatteryLevel;
         public bool debugCharging;
+        public bool isDead;
 
         void Start()
         {
@@ -60,9 +58,19 @@ namespace Shellphone
 
         void Update()
         {
+            UpdateHealth();
+            if (isDead)
+            {
+                if (Camera.main.backgroundColor != Color.black)
+                {
+                    _sprite.color = Color.black;
+                    Camera.main.backgroundColor = Color.black;
+                    StartCoroutine(EndGame());
+                }
+                return;
+            }
             // game logic
             HandleProximity();
-            UpdateHealth();
             // shake detection changing health
             DetectMovement();
             UpdateMood();
@@ -77,6 +85,12 @@ namespace Shellphone
             var healthColor = info.healthGradient.Evaluate(health);
             healthColor.a = swayIndex;
             _sprite.color = healthColor;
+        }
+
+        private IEnumerator EndGame()
+        {
+            yield return new WaitForSeconds(60f);
+            Application.Quit();
         }
 
         private void DetectMovement()
@@ -112,6 +126,10 @@ namespace Shellphone
 
         private void UpdateHealth()
         {
+            if (isDead)
+            {
+                return;
+            }
             float batteryLevel = 0f;
 #if UNITY_EDITOR
             batteryLevel = debugBatteryLevel;
@@ -124,6 +142,10 @@ namespace Shellphone
             float applyRate = (isCharging) ? 1f : healthRateCurve.Evaluate(batteryLevel);
             health = Mathf.Lerp(health, health + applyRate, Time.deltaTime * healthPerSecondModifier);
             health = Mathf.Clamp01(health);
+            if (health <= 0f)
+            {
+                isDead = true;
+            }
         }
 
         private void HandleProximity()
@@ -206,7 +228,7 @@ namespace Shellphone
         {
             var parentDirection = Vector2.up;
             var randomVector = (Vector2)Random.insideUnitCircle.normalized;
-            var pos = parentDirection * 3f + randomVector;
+            var pos = parentDirection + randomVector;
             coral.transform.position = pos.normalized * 0.5f;
             coral.transform.SetParent(parent.transform, false);
         }

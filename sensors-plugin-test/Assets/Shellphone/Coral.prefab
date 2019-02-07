@@ -56,8 +56,45 @@ MonoBehaviour:
   baseAngle: 0
   chanceToBranch: 0
   chanceToStop: 0
+  hueIndex: 0
   seeds: 0
   saturation: {x: 0.83680135, y: 0.9428805}
+  health: 0
+  isDead: 0
+  healthChangeRatePerSeaHealth:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -1
+      inSlope: 0.053832054
+      outSlope: 0.053832054
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.5120427
+    - serializedVersion: 3
+      time: 0.6125515
+      value: -0.6550418
+      inSlope: 1.3598343
+      outSlope: 1.3598343
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.5209973
+    - serializedVersion: 3
+      time: 1
+      value: -0.1
+      inSlope: 0.023807611
+      outSlope: 0.023807611
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  deadCleanupInterval: 200
 --- !u!212 &7347965423763877023
 SpriteRenderer:
   m_ObjectHideFlags: 0

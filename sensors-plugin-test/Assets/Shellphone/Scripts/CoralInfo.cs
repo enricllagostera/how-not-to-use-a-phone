@@ -16,5 +16,6 @@ public class CoralInfo : ScriptableObject
     public float stopCooldown = 10000;
     public float branchScaleDecay = 0.75f;
     public int maxDepthLevel = 10;
-    public Gradient initialColors;
+    public AnimationCurve healthChangeRatePerSeaHealth;
+    [MinMaxSlider(60f, 2400f)] public Vector2 deadCleanupInterval;
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: VFXPlayerCOnfig
   m_EditorClassIdentifier: 
   basePatternDuration: 200
-  minSilence: 5
-  minVibration: 80
+  minSilence: 1
+  minVibration: 50

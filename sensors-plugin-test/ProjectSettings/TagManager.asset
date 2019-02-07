@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Dead
+    uniqueID: 1074769485
+    locked: 0
+  - name: Alive
+    uniqueID: 3825500837
+    locked: 0
+  - name: Frame
+    uniqueID: 1714131921
+    locked: 0

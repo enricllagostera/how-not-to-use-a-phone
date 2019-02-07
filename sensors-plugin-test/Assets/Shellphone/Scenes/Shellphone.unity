@@ -1271,6 +1271,39 @@ MonoBehaviour:
   healthChangeRate: 0
   isCharging: 0
   healthPerSecondModifier: 0.01
+  healthRateCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.62118965
+      value: -0.06732439
+      inSlope: 2.550489
+      outSlope: 2.550489
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.18292892
+      outWeight: 0.14269061
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   health: 1
   chanceToStartNewCoral: 1
   swayIndex: 0
@@ -1427,7 +1460,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.10188898, g: 0.041117832, b: 0.45, a: 0}
+  m_BackGroundColor: {r: 0.20625669, g: 0.27324268, b: 0.4245283, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}

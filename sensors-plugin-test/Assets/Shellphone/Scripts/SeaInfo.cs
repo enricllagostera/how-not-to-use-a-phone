@@ -21,7 +21,12 @@ namespace Shellphone
 
         public float CalculateAndSetChanceToStartNewCoral(float health)
         {
-            chanceToStartNewCoral = health;
+            chanceToStartNewCoral = health * 2f;
+            // high pass
+            if (health < 0.2f)
+            {
+                chanceToStartNewCoral = 0f;
+            }
             return chanceToStartNewCoral;
         }
 
