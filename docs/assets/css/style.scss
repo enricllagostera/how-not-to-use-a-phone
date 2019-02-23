@@ -1,0 +1,53 @@
+---
+# style for how not to use a phone
+---
+
+$base-font-family: "Open Sans", arial, sans-serif;
+$base-font-size: 16px;
+$brand-color: #8518f9;
+$background-color: #f4f6f7;
+$text-color: #161a15;
+$grey-color: #fd4c31;
+$orange-color: #fd4c31;
+
+
+@import "minima";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,700i,900');
+
+h1 {
+    font-weight: 400;
+}
+
+h2 {
+    font-weight: 400;
+}
+
+h3 {
+    font-weight: 300;
+}
+
+.site-title {
+    font-weight: 300;
+    color: $brand-color !important;
+}
+
+.post-title {
+    font-weight: 400;
+}
+
+h1.page-heading {
+    display:none;
+}
+
+a:link, a:hover, a:visited {
+    color: $brand-color !important;
+}
+
+.site-header {
+    border-top: 5px solid $brand-color;
+    border-bottom: 0px solid $brand-color;
+}
+
+.site-footer {
+    border-top: 0px solid #fffcfb;
+}

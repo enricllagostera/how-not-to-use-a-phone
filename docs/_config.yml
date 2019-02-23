@@ -3,4 +3,4 @@ author: Enric Llagostera
 description: Design explorations of smartphones as basis for DIY alternative controllers. A independent study project for the Winter 2019 term.
 email: enricllagostera@gmail.com
 remote_theme: jekyll/minima
-show_excerpts: true
+show_excerpts: false

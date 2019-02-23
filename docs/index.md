@@ -1,7 +1,14 @@
 ---
 title: About
+list_title: Logs
 ---
 
-Design explorations of smartphones as basis for DIY alternative controllers. This website consists of the design logs and some reflections on this process.
+## About
 
-Created by [Enric Llagostera](http://enric.llagostera.com.br), for an independent study project (Winter 2019).
+This project is focused on creating design explorations of smartphones as basis for DIY alternative controllers. It involves the use of different tools for app development, as well as experiments with the play affordances of smartphone sensing and materials. This page provides access to design logs, documentation, prototypes and some reflections on this process.
+
+Created by [Enric Llagostera](http://enric.llagostera.com.br), for an independent study project (Winter 2019) under the supervision of Rilla Khaled.
+
+![Shellphone concept sketches]({{site.baseurl}}/images/shellphone.jpg)
+
+*Example of one of the experiment ideas, the Shellphone.*
