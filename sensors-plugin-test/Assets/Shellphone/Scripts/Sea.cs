@@ -12,7 +12,6 @@ namespace Shellphone
     public class Sea : MonoBehaviour
     {
         private float targetMood;
-        private SpriteRenderer _sprite;
         public SeaInfo info;
         public Coral prefabCoral;
         private float swayIndex;
@@ -50,12 +49,12 @@ namespace Shellphone
         public Vector3Var accelerationData;
         public FloatVar lightSensorData;
         public FloatVar proximityData;
-
+        private MeshRenderer _renderer;
 
         void Start()
         {
             Input.gyro.enabled = true;
-            _sprite = GetComponent<SpriteRenderer>();
+            _renderer = GetComponent<MeshRenderer>();
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
             if (damageDurationFromFXCurve) damageInterval = damageVFX.duration + 0.2f;
         }
@@ -67,7 +66,7 @@ namespace Shellphone
             {
                 if (Camera.main.backgroundColor != Color.black)
                 {
-                    _sprite.color = Color.black;
+                    _renderer.sharedMaterial.SetColor("_Color", new Color(0.1f, 0.1f, 0.1f));
                     Camera.main.backgroundColor = Color.black;
                     StartCoroutine(EndGame());
                 }
@@ -86,9 +85,12 @@ namespace Shellphone
             }
             // visual update
             swayIndex = Mathf.Abs(Mathf.Sin(Time.realtimeSinceStartup * info.seaBPM / 60f));
-            var healthColor = info.healthGradient.Evaluate(health);
-            healthColor.a = swayIndex;
-            _sprite.color = healthColor;
+            var healthColor = info.healthGradientFg.Evaluate(health);
+            Camera.main.backgroundColor = info.healthGradientBg.Evaluate(health); ;
+            healthColor.a = Mathf.Clamp01(0.05f + swayIndex * 0.2f);
+            _renderer.sharedMaterial.SetColor("_Color", healthColor);
+            _renderer.sharedMaterial.SetTextureOffset("_MainTex", new Vector2(Time.realtimeSinceStartup, swayIndex) * 0.05f);
+            _renderer.sharedMaterial.SetTextureScale("_MainTex", Vector2.one * (5f + swayIndex * .1f));
         }
 
         private IEnumerator EndGame()
