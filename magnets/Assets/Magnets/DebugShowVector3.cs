@@ -43,7 +43,7 @@ namespace Magnets
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 baseValue1 = inputValue;
                 print("base1: " + baseValue1);
@@ -73,13 +73,16 @@ namespace Magnets
 
         private void OnDrawGizmos()
         {
+            /*
             Gizmos.color = Color.red;
             Gizmos.DrawRay(directionIndicator.position, previousValue);
             Gizmos.color = Color.yellow;
             Gizmos.DrawRay(directionIndicator.position, inputValue);
             Gizmos.color = Color.green;
             Gizmos.DrawRay(directionIndicator.position, baseValue1 - baseValue2);
+            */
         }
     }
 
 }
+
