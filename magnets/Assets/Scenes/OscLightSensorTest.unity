@@ -130,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &278294791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,11 +228,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -626,8 +626,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _udpPort: 9000
-  _oscAddress: /magneticfield
-  _dataType: 5
+  _oscAddress: /light
+  _dataType: 2
   _event:
     m_PersistentCalls:
       m_Calls: []
@@ -640,7 +640,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   _floatEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 278294794}
+        m_MethodName: ShowFloat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: OscJack.OscEventReceiver+FloatEvent, jp.keijiro.osc-jack.Runtime,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _vector2Event:
@@ -651,9 +662,9 @@ MonoBehaviour:
   _vector3Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2114070023}
-        m_MethodName: ShowVector3AsScale
-        m_Mode: 0
+      - m_Target: {fileID: 278294790}
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -681,7 +692,18 @@ MonoBehaviour:
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _stringEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 278294791}
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: OscJack.OscEventReceiver+StringEvent, jp.keijiro.osc-jack.Runtime,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!4 &1517831235
@@ -1061,7 +1083,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d3118f0e7561c4a96335857b027eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showAsScale: 0
   imgX: {fileID: 1401477247}
   imgY: {fileID: 1369665795}
   imgZ: {fileID: 1803028876}
   maxAxisValue: 350
+  showAs3DVector: 0
+  directionIndicator: {fileID: 0}

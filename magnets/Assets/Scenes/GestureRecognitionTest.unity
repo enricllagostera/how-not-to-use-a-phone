@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trainingSet: []
-  lbl: {fileID: 0}
+  lbl: {fileID: 1418527566}
 --- !u!114 &1090320421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,7 +699,7 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -972,7 +972,7 @@ GameObject:
   m_Layer: 0
   m_Name: DebugMagnetidField
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
