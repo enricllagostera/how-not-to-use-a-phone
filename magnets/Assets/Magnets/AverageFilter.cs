@@ -17,7 +17,6 @@ namespace Magnets
         public Vector3Event OnNewAverage;
 
 
-
         void OnEnable()
         {
             readings = new List<Vector3>();
@@ -35,7 +34,10 @@ namespace Magnets
             avgV3.x = readings.Average(a => a.x);
             avgV3.y = readings.Average(a => a.y);
             avgV3.z = readings.Average(a => a.z);
-            debugV3.ShowVector3AsScale(avgV3);
+            if (debugV3 != null)
+            {
+                debugV3.ShowVector3AsScale(avgV3);
+            }
             if (OnNewAverage != null) OnNewAverage.Invoke(avgV3);
         }
     }

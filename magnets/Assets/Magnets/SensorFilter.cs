@@ -6,7 +6,6 @@ using System.Linq;
 
 namespace Magnets
 {
-
     public class SensorFilter : MonoBehaviour
     {
         public List<Vector3> readings;
@@ -18,12 +17,12 @@ namespace Magnets
         public int frameWindow = 5;
         public Vector3 avgV3;
 
+        public Vector3Event OnUpdatedSensors;
+
         void OnEnable()
         {
             readings = new List<Vector3>();
-
             server = new OscServer(portNumber); // Port number
-
             server.MessageDispatcher.AddCallback(
                 oscEndpoint,
                 (string address, OscDataHandle data) =>
@@ -44,7 +43,14 @@ namespace Magnets
 
         void Update()
         {
-            debugV3.ShowVector3AsScale(avgV3);
+            if (debugV3 != null)
+            {
+                debugV3.ShowVector3AsScale(avgV3);
+            }
+            if (OnUpdatedSensors != null)
+            {
+                OnUpdatedSensors.Invoke(avgV3);
+            }
         }
 
         void OnDisable()

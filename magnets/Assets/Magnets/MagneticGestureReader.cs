@@ -12,7 +12,6 @@ namespace Magnets
     {
         List<Point> points;
         private Vector3 inputValue;
-        private Vector3 virtualKeyPosition;
         private int strokeId;
         public List<Gesture> trainingSet = new List<Gesture>();
         public TextMeshProUGUI lbl;
