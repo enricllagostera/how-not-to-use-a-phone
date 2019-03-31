@@ -7,12 +7,10 @@ using TMPro;
 
 namespace Magnets
 {
-
     public class MagneticGestureReader : MonoBehaviour
     {
         public bool useTrainingSetFile = false;
         public TrainingSet trainingSetFile;
-
         List<Point> points;
         private Vector3 inputValue;
         private int strokeId;
@@ -22,26 +20,8 @@ namespace Magnets
         private bool isRecordingForRecognizing;
         public GestureResultEvent onRecognizedGesture;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            points = new List<Point>();
-            if (useTrainingSetFile)
-            {
-                trainingSet = trainingSetFile.allGestures;
-            }
-            isRecordingForRecognizing = false;
-            isRecordingForTrainingSet = false;
-        }
 
-        void Update()
-        {
-            if (isRecordingForTrainingSet || isRecordingForRecognizing)
-            {
-                points.Add(new Point(inputValue.x, inputValue.y, strokeId));
-            }
-        }
-
+        #region [Public API]
 
         public void UpdateInputValue(Vector3 value)
         {
@@ -99,6 +79,32 @@ namespace Magnets
             }
             isRecordingForRecognizing = recognizingMode;
         }
+
+        #endregion
+
+
+        #region [Messages]
+
+        void Start()
+        {
+            points = new List<Point>();
+            if (useTrainingSetFile)
+            {
+                trainingSet = trainingSetFile.allGestures;
+            }
+            isRecordingForRecognizing = false;
+            isRecordingForTrainingSet = false;
+        }
+
+        void Update()
+        {
+            if (isRecordingForTrainingSet || isRecordingForRecognizing)
+            {
+                points.Add(new Point(inputValue.x, inputValue.y, strokeId));
+            }
+        }
+
+        #endregion
     }
 
 }

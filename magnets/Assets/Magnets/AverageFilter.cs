@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Magnets
 {
@@ -12,16 +9,9 @@ namespace Magnets
         public List<Vector3> readings;
         public Vector3 avgV3;
         public int frameWindow;
-        public DebugShowVector3 debugV3;
-
         public Vector3Event OnNewAverage;
 
-
-        void OnEnable()
-        {
-            readings = new List<Vector3>();
-            avgV3 = new Vector3();
-        }
+        #region [Public API]
 
         public void AddNewReading(Vector3 value)
         {
@@ -34,12 +24,17 @@ namespace Magnets
             avgV3.x = readings.Average(a => a.x);
             avgV3.y = readings.Average(a => a.y);
             avgV3.z = readings.Average(a => a.z);
-            if (debugV3 != null)
-            {
-                debugV3.ShowVector3AsScale(avgV3);
-            }
             if (OnNewAverage != null) OnNewAverage.Invoke(avgV3);
         }
+        #endregion
+
+        #region [Messages]
+        private void OnEnable()
+        {
+            readings = new List<Vector3>();
+            avgV3 = new Vector3();
+        }
+        #endregion
     }
 
 }

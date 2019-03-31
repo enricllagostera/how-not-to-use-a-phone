@@ -56,7 +56,6 @@
      <Compile Include="Assets\Magnets\AlignmentFilter.cs" />
      <Compile Include="Assets\Magnets\AverageFilter.cs" />
      <Compile Include="Assets\Magnets\Debug\DebugShowValuesAsText.cs" />
-     <Compile Include="Assets\Magnets\Debug\DebugShowVector3.cs" />
      <Compile Include="Assets\Magnets\DelegatesAndEvents.cs" />
      <Compile Include="Assets\Magnets\DetectDeviceIPAddress.cs" />
      <Compile Include="Assets\Magnets\ExtensionMethods.cs" />
