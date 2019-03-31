@@ -1,0 +1,31 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Magnets
+{
+
+    public class AlignmentFilter : MonoBehaviour
+    {
+        public Vector3 baseOffset = Vector3.zero;
+        public Vector3 currentValue;
+        public bool hasOffset;
+        public Vector3Event onFilteredValue;
+
+        public void UpdateSourceValue(Vector3 source)
+        {
+            if (!hasOffset)
+            {
+                baseOffset = source;
+                hasOffset = true;
+            }
+            currentValue = source - baseOffset;
+            if (onFilteredValue != null) onFilteredValue.Invoke(currentValue);
+        }
+        private void OnEnable()
+        {
+            hasOffset = false;
+        }
+    }
+
+}

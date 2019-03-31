@@ -1,0 +1,211 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4966f7a572909c54ca3253c59ccf2cb3, type: 3}
+  m_Name: RedDirtTrainingSet
+  m_EditorClassIdentifier: 
+  allGestures:
+  - Points:
+    - X: 0.24394363
+      Y: 0.025271922
+      StrokeID: 0
+    - X: 0.13854772
+      Y: -0.078247406
+      StrokeID: 0
+    - X: 0.08013708
+      Y: -0.09856784
+      StrokeID: 0
+    - X: 0.120287806
+      Y: 0.09283257
+      StrokeID: 0
+    - X: 0.18241557
+      Y: -0.03271092
+      StrokeID: 0
+    - X: 0.16996212
+      Y: -0.27690837
+      StrokeID: 0
+    - X: 0.26711556
+      Y: -0.3141834
+      StrokeID: 0
+    - X: 0.13934815
+      Y: -0.1865902
+      StrokeID: 0
+    - X: 0.15459235
+      Y: -0.017432658
+      StrokeID: 0
+    - X: 0.062706746
+      Y: 0.0034424667
+      StrokeID: 0
+    - X: -0.03794855
+      Y: -0.02229966
+      StrokeID: 0
+    - X: 0.011804941
+      Y: 0.04673115
+      StrokeID: 0
+    - X: -0.16790456
+      Y: 0.17071874
+      StrokeID: 0
+    - X: -0.39966404
+      Y: 0.2372385
+      StrokeID: 0
+    - X: -0.6282873
+      Y: 0.31966186
+      StrokeID: 0
+    - X: -0.5179476
+      Y: 0.49080572
+      StrokeID: 0
+    - X: -0.5814018
+      Y: 0.45434293
+      StrokeID: 0
+    - X: -0.6260005
+      Y: 0.3062207
+      StrokeID: 0
+    - X: -0.4731883
+      Y: 0.23661079
+      StrokeID: 0
+    - X: -0.24881747
+      Y: 0.16346535
+      StrokeID: 0
+    - X: -0.18738747
+      Y: -0.027183123
+      StrokeID: 0
+    - X: -0.08537514
+      Y: -0.11562006
+      StrokeID: 0
+    - X: 0.104125395
+      Y: -0.21300067
+      StrokeID: 0
+    - X: 0.08404124
+      Y: -0.030404974
+      StrokeID: 0
+    - X: 0.13201721
+      Y: -0.09474717
+      StrokeID: 0
+    - X: 0.25843796
+      Y: 0.030277783
+      StrokeID: 0
+    - X: 0.1505502
+      Y: -0.042010102
+      StrokeID: 0
+    - X: 0.30786324
+      Y: -0.12865426
+      StrokeID: 0
+    - X: 0.3010397
+      Y: 0.020416033
+      StrokeID: 0
+    - X: 0.2572831
+      Y: -0.09212971
+      StrokeID: 0
+    - X: 0.14542209
+      Y: -0.23386405
+      StrokeID: 0
+    - X: 0.18546402
+      Y: -0.13847162
+      StrokeID: 0
+    Name: forward
+  - Points:
+    - X: -0.21440732
+      Y: 0.08429423
+      StrokeID: 0
+    - X: -0.15032394
+      Y: 0.12836482
+      StrokeID: 0
+    - X: -0.3021401
+      Y: 0.05803196
+      StrokeID: 0
+    - X: -0.16420521
+      Y: 0.18146946
+      StrokeID: 0
+    - X: -0.1510213
+      Y: 0.08725234
+      StrokeID: 0
+    - X: -0.05946351
+      Y: -0.062233355
+      StrokeID: 0
+    - X: 0.16088079
+      Y: -0.13093323
+      StrokeID: 0
+    - X: 0.28775722
+      Y: -0.11345962
+      StrokeID: 0
+    - X: 0.29988956
+      Y: -0.19455673
+      StrokeID: 0
+    - X: 0.29991072
+      Y: -0.26420218
+      StrokeID: 0
+    - X: 0.26157832
+      Y: -0.093549095
+      StrokeID: 0
+    - X: 0.4629328
+      Y: -0.03895218
+      StrokeID: 0
+    - X: 0.24926074
+      Y: -0.09703493
+      StrokeID: 0
+    - X: 0.30065122
+      Y: 0.035661865
+      StrokeID: 0
+    - X: 0.17253171
+      Y: -0.0962546
+      StrokeID: 0
+    - X: 0.3248266
+      Y: -0.15034135
+      StrokeID: 0
+    - X: 0.23797563
+      Y: -0.04738438
+      StrokeID: 0
+    - X: 0.28007105
+      Y: 0.0066741197
+      StrokeID: 0
+    - X: 0.13103537
+      Y: 0.018481515
+      StrokeID: 0
+    - X: 0.1411193
+      Y: -0.10828538
+      StrokeID: 0
+    - X: 0.19192584
+      Y: -0.24257712
+      StrokeID: 0
+    - X: 0.14186992
+      Y: -0.010252995
+      StrokeID: 0
+    - X: -0.017997265
+      Y: 0.021013126
+      StrokeID: 0
+    - X: -0.19303462
+      Y: 0.13024108
+      StrokeID: 0
+    - X: -0.2796015
+      Y: 0.23123017
+      StrokeID: 0
+    - X: -0.32011896
+      Y: 0.09173586
+      StrokeID: 0
+    - X: -0.23671405
+      Y: 0.15150931
+      StrokeID: 0
+    - X: -0.41392225
+      Y: 0.15593667
+      StrokeID: 0
+    - X: -0.38823494
+      Y: -0.049330316
+      StrokeID: 0
+    - X: -0.46325147
+      Y: 0.050928846
+      StrokeID: 0
+    - X: -0.47402865
+      Y: 0.16992503
+      StrokeID: 0
+    - X: -0.4568318
+      Y: 0.04533273
+      StrokeID: 0
+    Name: look

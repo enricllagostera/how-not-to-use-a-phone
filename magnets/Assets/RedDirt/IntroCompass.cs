@@ -10,24 +10,19 @@ namespace RedDirt
         private bool hasSouthDirection;
         private Vector3 southDirection;
 
-        void Start()
+        private void Start()
         {
             hasSouthDirection = false;
             southDirection = Vector3.zero;
         }
 
-        void Update()
+        private void Update()
         {
             if (hasSouthDirection)
             {
                 var result = Vector3.Dot(magnetValues.normalized, southDirection);
                 print(result);
             }
-            else
-            {
-
-            }
-
         }
 
         #region Events

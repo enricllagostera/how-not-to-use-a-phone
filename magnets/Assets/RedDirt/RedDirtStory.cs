@@ -2,46 +2,79 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
+using TMPro;
+using UnityEngine.Events;
+using PDollarGestureRecognizer;
+using System;
 
 public class RedDirtStory : MonoBehaviour
 {
+    [Header("Story & Logic")]
     public TextAsset inkAsset;
-    Story inkStory;
+    public bool playOnStart;
+    [Range(0.2f, 0.99f)] public float gestureScoreThreshold;
+    private bool isPlaying;
     bool waitingForChoice = false;
+    Story inkStory;
+    [Header("Story UI")]
+    public TextMeshProUGUI msgLbl;
+    [Header("Events")]
+    public UnityEvent onStartDecision;
+    public UnityEvent onEndDecision;
+
+    #region Events
+
+    public void ParseGestureChoice(Result gestureResult)
+    {
+        if (waitingForChoice)
+        {
+            for (int i = 0; i < inkStory.currentChoices.Count; i++)
+            {
+                if (gestureResult.GestureClass.ToLower() == inkStory.currentChoices[i].text.ToLower() && gestureResult.Score > gestureScoreThreshold)
+                {
+                    ChooseChoice(i);
+                    return;
+                }
+            }
+            // did not find any choice, picks last as default
+            ChooseChoice(inkStory.currentChoices.Count - 1);
+        }
+    }
+
+    #endregion
+
+    #region Messages
 
     private void Awake()
     {
         inkStory = new Story(inkAsset.text);
+        waitingForChoice = false;
+        isPlaying = false;
     }
 
     private void Start()
     {
+        if (playOnStart)
+        {
+            PlayStory();
+        }
+    }
+
+    #endregion
+
+    #region Private methods
+
+    private void PlayStory()
+    {
+        isPlaying = true;
         StartCoroutine(ShowKnot());
     }
 
-    private void Update()
+
+    void ChooseChoice(int choice)
     {
-        if (waitingForChoice)
-        {
-            int choice = -1;
-            if (Input.GetKeyUp(KeyCode.Alpha1))
-            {
-                choice = 1;
-            }
-            if (Input.GetKeyUp(KeyCode.Alpha2))
-            {
-                choice = 1;
-            }
-            if (Input.GetKeyUp(KeyCode.Alpha3))
-            {
-                choice = 3;
-            }
-            if (choice > 0)
-            {
-                inkStory.ChooseChoiceIndex(choice - 1);
-                StartCoroutine(ShowKnot());
-            }
-        }
+        inkStory.ChooseChoiceIndex(choice);
+        StartCoroutine(ShowKnot());
     }
 
     IEnumerator ShowKnot()
@@ -49,17 +82,36 @@ public class RedDirtStory : MonoBehaviour
         while (inkStory.canContinue)
         {
             waitingForChoice = false;
-            Debug.Log(inkStory.Continue());
-            yield return new WaitForSeconds(5f);
+            msgLbl.text = inkStory.Continue();
+            yield return new WaitForSeconds(10f);
         }
         if (inkStory.currentChoices.Count > 0)
         {
+            msgLbl.text = "";
             for (int i = 0; i < inkStory.currentChoices.Count; ++i)
             {
                 Choice choice = inkStory.currentChoices[i];
-                Debug.Log("Choice " + (i + 1) + ". " + choice.text);
+                msgLbl.text += "\nChoice " + (i + 1) + ". " + choice.text;
             }
+            msgLbl.text += "\n\n";
             waitingForChoice = true;
+            if (onStartDecision != null)
+            {
+                onStartDecision.Invoke();
+            }
+            StartCoroutine(EndChoicePeriod());
         }
     }
+
+    private IEnumerator EndChoicePeriod()
+    {
+        yield return new WaitForSeconds(5f);
+        if (onEndDecision != null)
+        {
+            onEndDecision.Invoke();
+        }
+
+    }
+    #endregion
+
 }

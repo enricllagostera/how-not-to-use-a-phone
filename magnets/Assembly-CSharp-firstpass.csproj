@@ -114,6 +114,29 @@
      <Compile Include="Assets\Plugins\NaughtyAttributes\Scripts\Core\ValidatorAttributes\RequiredAttribute.cs" />
      <Compile Include="Assets\Plugins\NaughtyAttributes\Scripts\Core\ValidatorAttributes\ValidateInputAttribute.cs" />
      <Compile Include="Assets\Plugins\NaughtyAttributes\Scripts\Core\ValidatorAttributes\ValidatorAttribute.cs" />
+     <Compile Include="Assets\Plugins\PDollar\Scripts\Demo.cs" />
+     <Compile Include="Assets\Plugins\PDollar\Scripts\PDollarGestureRecognizer\Geometry.cs" />
+     <Compile Include="Assets\Plugins\PDollar\Scripts\PDollarGestureRecognizer\Gesture.cs" />
+     <Compile Include="Assets\Plugins\PDollar\Scripts\PDollarGestureRecognizer\GestureIO.cs" />
+     <Compile Include="Assets\Plugins\PDollar\Scripts\PDollarGestureRecognizer\Point.cs" />
+     <Compile Include="Assets\Plugins\PDollar\Scripts\PDollarGestureRecognizer\PointCloudRecognizer.cs" />
+     <Compile Include="Assets\Plugins\PDollar\Scripts\PDollarGestureRecognizer\Result.cs" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-asterisk-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-X-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-five_point_star-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-I-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-exclamation_point-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-arrowhead-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-T-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-D-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-six_point_star-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-H-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-pitchfork-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-line-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-null-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-half_note-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-N-01.xml" />
+     <None Include="Assets\Plugins\PDollar\Resources\GestureSet\10-stylus-MEDIUM\10-stylus-medium-P-01.xml" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Repos/how-not-to-use-a-phone/magnets/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

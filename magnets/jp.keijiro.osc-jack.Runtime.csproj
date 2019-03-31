@@ -53,16 +53,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\OscJack\Runtime\Base\Internal\OscDataTypes.cs" />
-     <Compile Include="Assets\OscJack\Runtime\Base\Internal\OscPacketEncoder.cs" />
-     <Compile Include="Assets\OscJack\Runtime\Base\Internal\OscPacketParser.cs" />
-     <Compile Include="Assets\OscJack\Runtime\Base\OscClient.cs" />
-     <Compile Include="Assets\OscJack\Runtime\Base\OscDataHandle.cs" />
-     <Compile Include="Assets\OscJack\Runtime\Base\OscMaster.cs" />
-     <Compile Include="Assets\OscJack\Runtime\Base\OscMessageDispatcher.cs" />
-     <Compile Include="Assets\OscJack\Runtime\Base\OscServer.cs" />
-     <Compile Include="Assets\OscJack\Runtime\Unity\OscEventReceiver.cs" />
-     <Compile Include="Assets\OscJack\Runtime\Unity\OscPropertySender.cs" />
+     <Compile Include="Assets\Plugins\OscJack\Runtime\Base\Internal\OscDataTypes.cs" />
+     <Compile Include="Assets\Plugins\OscJack\Runtime\Base\Internal\OscPacketEncoder.cs" />
+     <Compile Include="Assets\Plugins\OscJack\Runtime\Base\Internal\OscPacketParser.cs" />
+     <Compile Include="Assets\Plugins\OscJack\Runtime\Base\OscClient.cs" />
+     <Compile Include="Assets\Plugins\OscJack\Runtime\Base\OscDataHandle.cs" />
+     <Compile Include="Assets\Plugins\OscJack\Runtime\Base\OscMaster.cs" />
+     <Compile Include="Assets\Plugins\OscJack\Runtime\Base\OscMessageDispatcher.cs" />
+     <Compile Include="Assets\Plugins\OscJack\Runtime\Base\OscServer.cs" />
+     <Compile Include="Assets\Plugins\OscJack\Runtime\Unity\OscEventReceiver.cs" />
+     <Compile Include="Assets\Plugins\OscJack\Runtime\Unity\OscPropertySender.cs" />
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Unity_2018_3_6/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
  </Reference>

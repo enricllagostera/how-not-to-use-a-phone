@@ -17,15 +17,15 @@ I will retrace my steps now. I will take a deep breath and remember where I left
     - I do not recognize any rocks here. # start03
 }
 
-+ [Sign: forward]
++ [forward]
     I step a bit deeper into the path. The ground is moist, sticky and cold. # start04
     -> wood_start
-+ [Sign: back]
-    I just got back into the path. I am not leaving right now. # start05
-    -> wood_start
-+ [Sign: look]
++ [look]
     Looking around, I notice a few broken twigs and a small trail into the bushes. # start06
     -> first_hall
++ [other]
+    I just got back into the path. I am not leaving right now. # start05
+    -> wood_start
 
 
 == learn_signs
@@ -35,10 +35,10 @@ I will retrace my steps now. I will take a deep breath and remember where I left
     ~ learned = 1
 }
 
-+ [Sign: forward]
++ [forward]
     The cool shade of the trees licks the skin in my arms as I move in. # learn02
     -> wood_start
-+ [Other signs]
++ [other]
     I need to take a step forward to enter the path. # learn03
     -> learn_signs
 
@@ -51,15 +51,15 @@ I will retrace my steps now. I will take a deep breath and remember where I left
     - I have the impression it is getting a bit warmer here. # hall03
 }
 
-+ [Sign: forward]
++ [forward]
     Branches cling to my clothes. Stepping forward feels a bit slow somehow? #hall04
     -> first_hall
-+ [Other signs]
-    Breath-in, breath-out. I've been through this before. #hall06
-    -> first_hall
-+ [Sign: look]
++ [look]
     I scratch at the rocks and lumps of soil near my feet. No success so far. #hall05
     -> second_hall
++ [other]
+    Breath-in, breath-out. I've been through this before. #hall06
+    -> first_hall
 
 
 === second_hall
@@ -80,21 +80,19 @@ I will retrace my steps now. I will take a deep breath and remember where I left
     - It is so close now. # second10
 }
 
-+ [Sign: forward]
++ [forward]
     I continue ahead, crawling on my knees. # second05
     -> second_hall
-    
-+ [Other signs]
-    I will not turn back. # second06
-    -> second_hall
-    
-+ [Sign: look]
++ [look]
     {cycle:
         - I lift some rocks, the gravel looks familiar. # second07
         - So many things have taken place here. They have come and gone. # second08
         - I sense the coming together of water, ground and root. # second09
     }
     ~ dig++
+    -> second_hall
++ [other]
+    I will not turn back. # second06
     -> second_hall
 
 
