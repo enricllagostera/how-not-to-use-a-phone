@@ -73,7 +73,6 @@ namespace Magnets
                     Gesture candidate = new Gesture(points.ToArray());
                     Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
                     if (onRecognizedGesture != null) onRecognizedGesture.Invoke(gestureResult);
-                    print(gestureResult.GestureClass + " " + gestureResult.Score);
                 }
             }
             isRecordingForRecognizing = recognizingMode;
@@ -98,7 +97,7 @@ namespace Magnets
         {
             if (isRecordingForTrainingSet || isRecordingForRecognizing)
             {
-                points.Add(new Point(inputValue.x, inputValue.z, strokeId));
+                points.Add(new Point(inputValue.y, inputValue.z, strokeId));
             }
         }
 

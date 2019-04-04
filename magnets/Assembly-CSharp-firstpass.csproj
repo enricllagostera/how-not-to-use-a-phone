@@ -53,6 +53,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\Monitor Components\Examples\JumperMan\JumperMan.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Examples\Using API\UsingAPI.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\Colors.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\LogCallbackDispatcher.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\Monitor.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\MonitorAudioSource.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\MonitorComponent.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\MonitorDebugLog.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\MonitorInput.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\MonitorRigidbody.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\MonitorRigidbody2D.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\Monitors.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\MonitorTransform.cs" />
+     <Compile Include="Assets\Plugins\Monitor Components\Scripts\TypeInspectors.cs" />
      <Compile Include="Assets\Plugins\PDollar\Scripts\Demo.cs" />
      <Compile Include="Assets\Plugins\PDollar\Scripts\PDollarGestureRecognizer\Geometry.cs" />
      <Compile Include="Assets\Plugins\PDollar\Scripts\PDollarGestureRecognizer\Gesture.cs" />

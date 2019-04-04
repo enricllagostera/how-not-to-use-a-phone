@@ -9,8 +9,6 @@ using System;
 
 namespace RedDirt
 {
-
-
     public class RedDirtStory : MonoBehaviour
     {
         [Header("Story & Logic")]
@@ -28,9 +26,9 @@ namespace RedDirt
         public UnityEvent onStartDecision;
         public UnityEvent onEndDecision;
         public VoiceOverEvent onShowNewLine;
+        private bool justFinishedShowingLine;
 
-
-        #region [Public API]
+        #region [PublicAPI]
         public void ParseGestureChoice(Result gestureResult)
         {
             if (waitingForChoice)
@@ -48,6 +46,11 @@ namespace RedDirt
             }
         }
 
+        public void OnFinishedShowingLine()
+        {
+            justFinishedShowingLine = true;
+        }
+
         #endregion
 
         #region [Messages]
@@ -57,6 +60,7 @@ namespace RedDirt
             inkStory = new Story(inkAsset.text);
             waitingForChoice = false;
             isPlaying = false;
+            justFinishedShowingLine = true;
         }
 
         private void Start()
@@ -89,14 +93,23 @@ namespace RedDirt
             while (inkStory.canContinue)
             {
                 waitingForChoice = false;
-                msgLbl.text = inkStory.Continue();
-                var tags = inkStory.currentTags;
-                if (onShowNewLine != null)
+                if (justFinishedShowingLine)
                 {
-                    onShowNewLine.Invoke(tags);
+                    justFinishedShowingLine = false;
+                    msgLbl.text = inkStory.Continue();
+                    var tags = inkStory.currentTags;
+                    if (onShowNewLine != null)
+                    {
+                        onShowNewLine.Invoke(tags);
+                    }
                 }
-                yield return new WaitForSeconds(10f);
+                yield return new WaitForEndOfFrame();
             }
+            while (!justFinishedShowingLine)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            yield return new WaitForSeconds(2f);
             if (inkStory.currentChoices.Count > 0)
             {
                 msgLbl.text = "";
@@ -122,7 +135,6 @@ namespace RedDirt
             {
                 onEndDecision.Invoke();
             }
-
         }
 
         #endregion

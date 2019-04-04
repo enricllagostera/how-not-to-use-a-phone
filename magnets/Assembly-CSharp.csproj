@@ -56,6 +56,7 @@
      <Compile Include="Assets\Magnets\AlignmentFilter.cs" />
      <Compile Include="Assets\Magnets\AverageFilter.cs" />
      <Compile Include="Assets\Magnets\Debug\DebugShowValuesAsText.cs" />
+     <Compile Include="Assets\Magnets\DebugGestureParser.cs" />
      <Compile Include="Assets\Magnets\DelegatesAndEvents.cs" />
      <Compile Include="Assets\Magnets\DetectDeviceIPAddress.cs" />
      <Compile Include="Assets\Magnets\ExtensionMethods.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Magnets\MagneticGestureReader.cs" />
      <Compile Include="Assets\Magnets\TrainingSet.cs" />
      <Compile Include="Assets\Magnets\TrainingSetRecorder.cs" />
+     <Compile Include="Assets\Magnets\WeightedV3Filter.cs" />
      <Compile Include="Assets\RedDirt\DelegatesAndEvents.cs" />
      <Compile Include="Assets\RedDirt\Dictionaries.cs" />
      <Compile Include="Assets\RedDirt\IntroCompass.cs" />
@@ -101,23 +103,6 @@
      <Compile Include="Assets\RedDirt\Plugins\SerializableDictionary\SerializableDictionary.cs" />
      <Compile Include="Assets\RedDirt\RedDirtStory.cs" />
      <Compile Include="Assets\RedDirt\VoiceOver.cs" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Repos/how-not-to-use-a-phone/magnets/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

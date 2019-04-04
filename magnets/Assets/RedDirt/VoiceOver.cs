@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RedDirt
 {
     public class VoiceOver : MonoBehaviour
     {
         public AudioSource audioPlayer;
+        public UnityEvent onFinishPlayingLine;
         public VoiceOverDictionary voiceOverLines;
+        private bool wasPlaying;
 
+        #region [PublicAPI]
         public void PlayNextLine(List<string> lineTags)
         {
             AudioClip clip = null;
@@ -23,6 +27,26 @@ namespace RedDirt
             audioPlayer.Stop();
             audioPlayer.PlayOneShot(clip, 1f);
         }
+        #endregion
+
+        #region [Messages]
+        private void Awake()
+        {
+            wasPlaying = false;
+        }
+
+        private void Update()
+        {
+            if (wasPlaying && !audioPlayer.isPlaying)
+            {
+                if (onFinishPlayingLine != null)
+                {
+                    onFinishPlayingLine.Invoke();
+                }
+            }
+            wasPlaying = audioPlayer.isPlaying;
+        }
+        #endregion
 
 
         #region [PrivateMethods]
