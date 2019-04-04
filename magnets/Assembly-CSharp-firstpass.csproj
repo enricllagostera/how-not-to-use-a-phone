@@ -53,38 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\Ink\Example\Scripts\BasicInkExample.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\CallStack.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Choice.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\ChoicePoint.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Container.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\ControlCommand.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\DebugMetadata.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Divert.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Glue.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\INamedContent.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\InkList.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\JsonSerialisation.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\ListDefinition.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\ListDefinitionsOrigin.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\NativeFunctionCall.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Object.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Path.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Pointer.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Profiler.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\PushPop.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\SearchResult.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\SimpleJson.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Story.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\StoryException.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\StoryState.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\StringJoinExtension.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Tag.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Value.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\VariableAssignment.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\VariableReference.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\VariablesState.cs" />
-     <Compile Include="Assets\Plugins\Ink\InkRuntime\Void.cs" />
      <Compile Include="Assets\Plugins\PDollar\Scripts\Demo.cs" />
      <Compile Include="Assets\Plugins\PDollar\Scripts\PDollarGestureRecognizer\Geometry.cs" />
      <Compile Include="Assets\Plugins\PDollar\Scripts\PDollarGestureRecognizer\Gesture.cs" />

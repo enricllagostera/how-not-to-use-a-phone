@@ -12,6 +12,7 @@ namespace Magnets
         public bool hasOffset;
         public Vector3Event onFilteredValue;
 
+        #region [Public API]
         public void UpdateSourceValue(Vector3 source)
         {
             if (!hasOffset)
@@ -27,11 +28,15 @@ namespace Magnets
         {
             hasOffset = false;
         }
+        #endregion
 
+        #region [Messages]
         private void OnEnable()
         {
             ResetOffsetOnNextUpdate();
         }
+
+        #endregion
     }
 
 }

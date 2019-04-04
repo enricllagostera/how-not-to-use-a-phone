@@ -7,111 +7,124 @@ using UnityEngine.Events;
 using PDollarGestureRecognizer;
 using System;
 
-public class RedDirtStory : MonoBehaviour
+namespace RedDirt
 {
-    [Header("Story & Logic")]
-    public TextAsset inkAsset;
-    public bool playOnStart;
-    [Range(0.2f, 0.99f)] public float gestureScoreThreshold;
-    private bool isPlaying;
-    bool waitingForChoice = false;
-    Story inkStory;
-    [Header("Story UI")]
-    public TextMeshProUGUI msgLbl;
-    [Header("Events")]
-    public UnityEvent onStartDecision;
-    public UnityEvent onEndDecision;
 
-    #region Events
 
-    public void ParseGestureChoice(Result gestureResult)
+    public class RedDirtStory : MonoBehaviour
     {
-        if (waitingForChoice)
+        [Header("Story & Logic")]
+        public TextAsset inkAsset;
+        public bool playOnStart;
+        [Range(0.2f, 0.99f)] public float gestureScoreThreshold;
+        private bool isPlaying;
+        bool waitingForChoice = false;
+        Story inkStory;
+
+        [Header("Story UI")]
+        public TextMeshProUGUI msgLbl;
+
+        [Header("Events")]
+        public UnityEvent onStartDecision;
+        public UnityEvent onEndDecision;
+        public VoiceOverEvent onShowNewLine;
+
+
+        #region [Public API]
+        public void ParseGestureChoice(Result gestureResult)
         {
-            for (int i = 0; i < inkStory.currentChoices.Count; i++)
+            if (waitingForChoice)
             {
-                if (gestureResult.GestureClass.ToLower() == inkStory.currentChoices[i].text.ToLower() && gestureResult.Score > gestureScoreThreshold)
+                for (int i = 0; i < inkStory.currentChoices.Count; i++)
                 {
-                    ChooseChoice(i);
-                    return;
+                    if (gestureResult.GestureClass.ToLower() == inkStory.currentChoices[i].text.ToLower() && gestureResult.Score > gestureScoreThreshold)
+                    {
+                        ChooseChoice(i);
+                        return;
+                    }
                 }
+                // did not find any choice, picks last as default
+                ChooseChoice(inkStory.currentChoices.Count - 1);
             }
-            // did not find any choice, picks last as default
-            ChooseChoice(inkStory.currentChoices.Count - 1);
         }
-    }
 
-    #endregion
+        #endregion
 
-    #region Messages
+        #region [Messages]
 
-    private void Awake()
-    {
-        inkStory = new Story(inkAsset.text);
-        waitingForChoice = false;
-        isPlaying = false;
-    }
-
-    private void Start()
-    {
-        if (playOnStart)
+        private void Awake()
         {
-            PlayStory();
-        }
-    }
-
-    #endregion
-
-    #region Private methods
-
-    private void PlayStory()
-    {
-        isPlaying = true;
-        StartCoroutine(ShowKnot());
-    }
-
-
-    void ChooseChoice(int choice)
-    {
-        inkStory.ChooseChoiceIndex(choice);
-        StartCoroutine(ShowKnot());
-    }
-
-    IEnumerator ShowKnot()
-    {
-        while (inkStory.canContinue)
-        {
+            inkStory = new Story(inkAsset.text);
             waitingForChoice = false;
-            msgLbl.text = inkStory.Continue();
-            yield return new WaitForSeconds(10f);
+            isPlaying = false;
         }
-        if (inkStory.currentChoices.Count > 0)
+
+        private void Start()
         {
-            msgLbl.text = "";
-            for (int i = 0; i < inkStory.currentChoices.Count; ++i)
+            if (playOnStart)
             {
-                Choice choice = inkStory.currentChoices[i];
-                msgLbl.text += "\nChoice " + (i + 1) + ". " + choice.text;
+                PlayStory();
             }
-            msgLbl.text += "\n\n";
-            waitingForChoice = true;
-            if (onStartDecision != null)
-            {
-                onStartDecision.Invoke();
-            }
-            StartCoroutine(EndChoicePeriod());
         }
-    }
 
-    private IEnumerator EndChoicePeriod()
-    {
-        yield return new WaitForSeconds(5f);
-        if (onEndDecision != null)
+        #endregion
+
+        #region [Private Methods]
+
+        private void PlayStory()
         {
-            onEndDecision.Invoke();
+            isPlaying = true;
+            StartCoroutine(ShowKnot());
         }
 
-    }
-    #endregion
 
+        private void ChooseChoice(int choice)
+        {
+            inkStory.ChooseChoiceIndex(choice);
+            StartCoroutine(ShowKnot());
+        }
+
+        private IEnumerator ShowKnot()
+        {
+            while (inkStory.canContinue)
+            {
+                waitingForChoice = false;
+                msgLbl.text = inkStory.Continue();
+                var tags = inkStory.currentTags;
+                if (onShowNewLine != null)
+                {
+                    onShowNewLine.Invoke(tags);
+                }
+                yield return new WaitForSeconds(10f);
+            }
+            if (inkStory.currentChoices.Count > 0)
+            {
+                msgLbl.text = "";
+                for (int i = 0; i < inkStory.currentChoices.Count; ++i)
+                {
+                    Choice choice = inkStory.currentChoices[i];
+                    msgLbl.text += "\nChoice " + (i + 1) + ". " + choice.text;
+                }
+                msgLbl.text += "\n\n";
+                waitingForChoice = true;
+                if (onStartDecision != null)
+                {
+                    onStartDecision.Invoke();
+                }
+                StartCoroutine(EndChoicePeriod());
+            }
+        }
+
+        private IEnumerator EndChoicePeriod()
+        {
+            yield return new WaitForSeconds(5f);
+            if (onEndDecision != null)
+            {
+                onEndDecision.Invoke();
+            }
+
+        }
+
+        #endregion
+    }
 }

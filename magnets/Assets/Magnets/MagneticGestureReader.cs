@@ -11,14 +11,13 @@ namespace Magnets
     {
         public bool useTrainingSetFile = false;
         public TrainingSet trainingSetFile;
-        List<Point> points;
+        public List<Gesture> trainingSet = new List<Gesture>();
+        public GestureResultEvent onRecognizedGesture;
+        private List<Point> points;
         private Vector3 inputValue;
         private int strokeId;
-        public List<Gesture> trainingSet = new List<Gesture>();
-        public TextMeshProUGUI lbl;
         private bool isRecordingForTrainingSet;
         private bool isRecordingForRecognizing;
-        public GestureResultEvent onRecognizedGesture;
 
 
         #region [Public API]
@@ -82,7 +81,6 @@ namespace Magnets
 
         #endregion
 
-
         #region [Messages]
 
         void Start()
@@ -100,7 +98,7 @@ namespace Magnets
         {
             if (isRecordingForTrainingSet || isRecordingForRecognizing)
             {
-                points.Add(new Point(inputValue.x, inputValue.y, strokeId));
+                points.Add(new Point(inputValue.x, inputValue.z, strokeId));
             }
         }
 
