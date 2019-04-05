@@ -1,5 +1,3 @@
-#theme:dark
-
 VAR ending = 0
 
 -> entrance
@@ -89,38 +87,45 @@ VAR ending = 0
 
  ========= farm =========
 
-{ending == 4: -> end }
-
-{stopping:
-    - As I dart downhill through the woods, I notice the forest changing. It is more spaced out now, with less branches to stumble upon. The trees are shorter and with more gnarly, darker barks. The house is still far, but not for long. #farm00
-    - I'm close now. #farm01
-    - { ending == 1 : I take a deep breath. } #farm02
-    - { ending >= 2 : Slowly now. } #farm03
+{ending == 4: -> gameover }
+{ 
+    - ending == 0 : 
+        As I dart downhill through the woods, I notice the forest changing. It is more spaced out now, with less branches to stumble upon. The trees are shorter and with more gnarly, darker barks. The house is still far, but not for long. #farm00
+    - ending == 1 : 
+        I'm close now. #farm01
+    - ending == 2 : 
+        I take a deep breath. #farm02 
+    - ending >= 2 : 
+        Slowly now. #farm03
 }
 
-* [forward] 
-    I approach the farm house. The doors and windows are closed. The small garden to the side is dry, the orange trees are hanging on, but look a bit tired. The dirt on the ground feels different. {~ending++} #farm04
-    
+* [forward]
+    ~ ending++ 
+    I approach the farm house. The doors and windows are closed. The small garden to the side is dry, the orange trees are hanging on, but look a bit tired. The dirt on the ground feels different. #farm04
     -> farm
-* [remember]
-    This is my grandmother's place. Last time I saw it, I was just a kid, maybe a young adult. It looks smaller now. I walk around the building, no one's here. I find a spot on the ground that looks like what I'm searching for. {~ ending++ } #farm05
     
+* [remember]
+    ~ ending++
+    This is my grandmother's place. Last time I saw it, I was just a kid, maybe a young adult. It looks smaller now. I walk around the building, no one's here. I find a spot on the ground that looks like what I'm searching for.  #farm05
     -> farm
 
 * { ending > 1 } 
     [down]
-    I walk with my eyes fixed on the ground. I can still recall every nook and cranny. Some rocks moved, I guess. I kneel by a red patch of dirt and start digging. I take small clumps of soil, grass roots sliding through my fingers. {~ ending++} #farm06
+    ~ ending++ 
+    I walk with my eyes fixed on the ground. I can still recall every nook and cranny. Some rocks moved, I guess. I kneel by a red patch of dirt and start digging. I take small clumps of soil, grass roots sliding through my fingers.  #farm06
     -> farm
 
 * { ending > 2 } 
     [stay]
-    I take the small seed I've been carrying in my pocket and hold it in my hand. It will stay here. {~ ending++ } #farm07
+    ~ ending++
+    I take the small seed I've been carrying in my pocket and hold it in my hand. It will stay here. #farm07
     -> farm
 
 + [default]
     -> farm
 
-=== end ===
+
+=== gameover ===
 
 I dig some more. The ground here is fertile, it has been tended before. It has been cared for. The sun is almost setting by now, and the red in the dirt is even stronger. Yes, the seed will heal. Satisfied, I backtrack my path home, in the darkening dusk.  #end00
 

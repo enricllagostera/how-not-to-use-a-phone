@@ -13,6 +13,7 @@ namespace RedDirt
         [Header("Clean-up objects")]
         public List<GameObject> discard;
         public bool loadStartScene = false;
+        public bool showTextSetting;
 
         private void Awake()
         {

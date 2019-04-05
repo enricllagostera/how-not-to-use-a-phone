@@ -66,10 +66,12 @@
      <Compile Include="Assets\Magnets\TrainingSet.cs" />
      <Compile Include="Assets\Magnets\TrainingSetRecorder.cs" />
      <Compile Include="Assets\Magnets\WeightedV3Filter.cs" />
-     <Compile Include="Assets\RedDirt\AnimationsController.cs" />
+     <Compile Include="Assets\RedDirt\AudioController.cs" />
+     <Compile Include="Assets\RedDirt\BindToRegistry.cs" />
      <Compile Include="Assets\RedDirt\DebugTouchCount.cs" />
      <Compile Include="Assets\RedDirt\DelegatesAndEvents.cs" />
      <Compile Include="Assets\RedDirt\Dictionaries.cs" />
+     <Compile Include="Assets\RedDirt\EyeController.cs" />
      <Compile Include="Assets\RedDirt\IntroCompass.cs" />
      <Compile Include="Assets\RedDirt\Plugins\Ink\Example\Scripts\BasicInkExample.cs" />
      <Compile Include="Assets\RedDirt\Plugins\Ink\InkRuntime\CallStack.cs" />
@@ -694,10 +696,10 @@
       <Project>{DA8B800C-8306-F63B-59C1-2CE64C285AAD}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="jp.keijiro.osc-jack.Editor.csproj">
       <Project>{4CE07CC6-0F18-F554-45BC-F1705BAF0BAF}</Project>      <Name>jp.keijiro.osc-jack.Editor</Name>    </ProjectReference>
-    <ProjectReference Include="jp.keijiro.osc-jack.Runtime.csproj">
-      <Project>{649DF0F9-A281-2934-856D-496208A8A9C5}</Project>      <Name>jp.keijiro.osc-jack.Runtime</Name>    </ProjectReference>
     <ProjectReference Include="AsepriteImporter.Editor.csproj">
       <Project>{ACAC8E9D-E228-0ADB-C5B7-D1991ABC7BBB}</Project>      <Name>AsepriteImporter.Editor</Name>    </ProjectReference>
+    <ProjectReference Include="jp.keijiro.osc-jack.Runtime.csproj">
+      <Project>{649DF0F9-A281-2934-856D-496208A8A9C5}</Project>      <Name>jp.keijiro.osc-jack.Runtime</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -22,6 +22,7 @@ namespace RedDirt
 
         [Header("Story UI")]
         public Text msgLbl;
+        public GameObject msgPanel;
 
         [Header("Events")]
         public UnityEvent onStartDecision;
@@ -53,6 +54,18 @@ namespace RedDirt
             justFinishedShowingLine = true;
         }
 
+        public void SetTextUI(bool active)
+        {
+            if (Registry.Instance.showTextSetting)
+            {
+                msgPanel.SetActive(active);
+            }
+            else
+            {
+                msgPanel.SetActive(false);
+            }
+        }
+
         #endregion
 
         #region [Messages]
@@ -66,10 +79,11 @@ namespace RedDirt
             //reader.trainingSetFile = GameObject.FindObjectOfType<Registry>().trainingSet;
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
             if (playOnStart)
             {
+                yield return new WaitForSeconds(3f);
                 PlayStory();
             }
         }
@@ -93,18 +107,17 @@ namespace RedDirt
 
         private IEnumerator ShowKnot()
         {
+            yield return new WaitForSeconds(3f);
             while (inkStory.canContinue)
             {
+
                 waitingForChoice = false;
                 if (justFinishedShowingLine)
                 {
                     justFinishedShowingLine = false;
                     msgLbl.text = inkStory.Continue();
                     var tags = inkStory.currentTags;
-                    if (onShowNewLine != null)
-                    {
-                        onShowNewLine.Invoke(tags);
-                    }
+                    onShowNewLine?.Invoke(tags);
                 }
                 yield return new WaitForEndOfFrame();
             }
@@ -112,7 +125,10 @@ namespace RedDirt
             {
                 yield return new WaitForEndOfFrame();
             }
-            yield return new WaitForSeconds(2f);
+            if (!Registry.Instance.showTextSetting)
+            {
+                yield return new WaitForSeconds(1f);
+            }
             if (inkStory.currentChoices.Count > 0)
             {
                 msgLbl.text = "";
@@ -134,10 +150,7 @@ namespace RedDirt
         private IEnumerator EndChoicePeriod()
         {
             yield return new WaitForSeconds(5f);
-            if (onEndDecision != null)
-            {
-                onEndDecision.Invoke();
-            }
+            onEndDecision?.Invoke();
         }
 
         #endregion

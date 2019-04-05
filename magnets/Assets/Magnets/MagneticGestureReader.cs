@@ -16,6 +16,7 @@ namespace Magnets
         public List<Gesture> trainingSet = new List<Gesture>();
         public MagneticReaderEvent onInit;
         public GestureResultEvent onRecognizedGesture;
+        public StringEvent onRecognizedName;
         public StringEvent onDebugValueProcessed;
         private List<Point> points;
         private Vector3 inputValue;
@@ -78,7 +79,8 @@ namespace Magnets
                     }
                     Gesture candidate = new Gesture(points.ToArray());
                     Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
-                    if (onRecognizedGesture != null) onRecognizedGesture.Invoke(gestureResult);
+                    onRecognizedGesture?.Invoke(gestureResult);
+                    onRecognizedName?.Invoke(gestureResult.GestureClass);
                 }
             }
             isRecordingForRecognizing = recognizingMode;

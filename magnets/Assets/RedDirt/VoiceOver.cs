@@ -32,6 +32,12 @@ namespace RedDirt
             }
             audioPlayer.PlayOneShot(clip, 1f);
         }
+
+        public void StopPlayingLine()
+        {
+            audioPlayer.Stop();
+            wasPlaying = false;
+        }
         #endregion
 
         #region [Messages]
@@ -42,6 +48,10 @@ namespace RedDirt
 
         private void Update()
         {
+            if (Registry.Instance.showTextSetting)
+            {
+                return;
+            }
             if (wasPlaying && !audioPlayer.isPlaying)
             {
                 if (onFinishPlayingLine != null)
