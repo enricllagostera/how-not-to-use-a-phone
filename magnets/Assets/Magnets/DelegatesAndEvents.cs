@@ -13,4 +13,7 @@ namespace Magnets
 
     [Serializable]
     public class GestureResultEvent : UnityEvent<Result> { }
+
+    [Serializable]
+    public class MagneticReaderEvent : UnityEvent<MagneticGestureReader> { }
 }

@@ -8,6 +8,7 @@ namespace RedDirt
     public class VoiceOver : MonoBehaviour
     {
         public AudioSource audioPlayer;
+        public AudioClip defaultClip;
         public UnityEvent onFinishPlayingLine;
         public VoiceOverDictionary voiceOverLines;
         private bool wasPlaying;
@@ -25,6 +26,10 @@ namespace RedDirt
                 }
             }
             audioPlayer.Stop();
+            if (clip == null)
+            {
+                clip = defaultClip;
+            }
             audioPlayer.PlayOneShot(clip, 1f);
         }
         #endregion

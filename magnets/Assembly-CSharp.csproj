@@ -62,9 +62,12 @@
      <Compile Include="Assets\Magnets\ExtensionMethods.cs" />
      <Compile Include="Assets\Magnets\InterpolatorFilter.cs" />
      <Compile Include="Assets\Magnets\MagneticGestureReader.cs" />
+     <Compile Include="Assets\Magnets\SensorValueDispatcher.cs" />
      <Compile Include="Assets\Magnets\TrainingSet.cs" />
      <Compile Include="Assets\Magnets\TrainingSetRecorder.cs" />
      <Compile Include="Assets\Magnets\WeightedV3Filter.cs" />
+     <Compile Include="Assets\RedDirt\AnimationsController.cs" />
+     <Compile Include="Assets\RedDirt\DebugTouchCount.cs" />
      <Compile Include="Assets\RedDirt\DelegatesAndEvents.cs" />
      <Compile Include="Assets\RedDirt\Dictionaries.cs" />
      <Compile Include="Assets\RedDirt\IntroCompass.cs" />
@@ -101,8 +104,29 @@
      <Compile Include="Assets\RedDirt\Plugins\Ink\InkRuntime\VariablesState.cs" />
      <Compile Include="Assets\RedDirt\Plugins\Ink\InkRuntime\Void.cs" />
      <Compile Include="Assets\RedDirt\Plugins\SerializableDictionary\SerializableDictionary.cs" />
+     <Compile Include="Assets\RedDirt\RedDirtGame.cs" />
      <Compile Include="Assets\RedDirt\RedDirtStory.cs" />
+     <Compile Include="Assets\RedDirt\Registry.cs" />
+     <Compile Include="Assets\RedDirt\Singleton.cs" />
      <Compile Include="Assets\RedDirt\VoiceOver.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Core\Sensor.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Core\SensorReader.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Core\SensorReturnIndex.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Core\UnitySensorPlugin.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Detectors\ShakeDetector.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Modifier\AccelerationLowPassModifier.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Modifier\SensorValueModifier.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Utils\Comparator\FloatVarComparator.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Utils\Comparator\IntVarComparator.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Utils\Comparator\SmartVarComparator.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Utils\SmartEvents\ListenSmartEvent.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Utils\SmartEvents\SmartEvent.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Utils\SmartEvents\SmartEventListener.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Utils\SmartVars\FloatVar.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Utils\SmartVars\IntVar.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Utils\SmartVars\SmartVar.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Utils\SmartVars\SmartVarType.cs" />
+     <Compile Include="Assets\UnityAndroidSensors\Scripts\Utils\SmartVars\Vector3Var.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Repos/how-not-to-use-a-phone/magnets/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
@@ -672,6 +696,8 @@
       <Project>{4CE07CC6-0F18-F554-45BC-F1705BAF0BAF}</Project>      <Name>jp.keijiro.osc-jack.Editor</Name>    </ProjectReference>
     <ProjectReference Include="jp.keijiro.osc-jack.Runtime.csproj">
       <Project>{649DF0F9-A281-2934-856D-496208A8A9C5}</Project>      <Name>jp.keijiro.osc-jack.Runtime</Name>    </ProjectReference>
+    <ProjectReference Include="AsepriteImporter.Editor.csproj">
+      <Project>{ACAC8E9D-E228-0ADB-C5B7-D1991ABC7BBB}</Project>      <Name>AsepriteImporter.Editor</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

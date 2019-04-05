@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.Events;
 using PDollarGestureRecognizer;
 using System;
+using UnityEngine.UI;
 
 namespace RedDirt
 {
@@ -20,13 +21,14 @@ namespace RedDirt
         Story inkStory;
 
         [Header("Story UI")]
-        public TextMeshProUGUI msgLbl;
+        public Text msgLbl;
 
         [Header("Events")]
         public UnityEvent onStartDecision;
         public UnityEvent onEndDecision;
         public VoiceOverEvent onShowNewLine;
         private bool justFinishedShowingLine;
+        public Magnets.MagneticGestureReader reader;
 
         #region [PublicAPI]
         public void ParseGestureChoice(Result gestureResult)
@@ -61,6 +63,7 @@ namespace RedDirt
             waitingForChoice = false;
             isPlaying = false;
             justFinishedShowingLine = true;
+            //reader.trainingSetFile = GameObject.FindObjectOfType<Registry>().trainingSet;
         }
 
         private void Start()
