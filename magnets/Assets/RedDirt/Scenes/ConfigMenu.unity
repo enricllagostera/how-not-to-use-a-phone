@@ -240,7 +240,7 @@ PrefabInstance:
     - target: {fileID: 3782766619503473564, guid: dec6257d731ae254b9cee3b6e39bdcef,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4200356726064695412, guid: dec6257d731ae254b9cee3b6e39bdcef,
         type: 3}
@@ -3658,6 +3658,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: MagneticGestures
       objectReference: {fileID: 0}
+    - target: {fileID: 7991167277800786663, guid: 404509ca3f4088346ab6b58f3f5ba712,
+        type: 3}
+      propertyPath: onParsedGesture.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2122240119}
+    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
+        type: 3}
+      propertyPath: onInit.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
+        type: 3}
+      propertyPath: onRecognizedGesture.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
+        type: 3}
+      propertyPath: onInit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1336839265}
+    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
+        type: 3}
+      propertyPath: onDebugValueProcessed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 309775099}
+    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
+        type: 3}
+      propertyPath: onRecognizedGesture.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 547170430}
+    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
+        type: 3}
+      propertyPath: onRecognizedGesture.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ParseGestureChoice
+      objectReference: {fileID: 0}
     - target: {fileID: 7991167276527120180, guid: 404509ca3f4088346ab6b58f3f5ba712,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3713,36 +3748,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
-        type: 3}
-      propertyPath: onInit.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
-        type: 3}
-      propertyPath: onRecognizedGesture.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
-        type: 3}
-      propertyPath: onInit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1336839265}
-    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
-        type: 3}
-      propertyPath: onDebugValueProcessed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 309775099}
-    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
-        type: 3}
-      propertyPath: onRecognizedGesture.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 547170430}
-    - target: {fileID: 7991167276527120183, guid: 404509ca3f4088346ab6b58f3f5ba712,
-        type: 3}
-      propertyPath: onRecognizedGesture.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ParseGestureChoice
-      objectReference: {fileID: 0}
     - target: {fileID: 7991167277402211011, guid: 404509ca3f4088346ab6b58f3f5ba712,
         type: 3}
       propertyPath: m_IsActive
@@ -3753,10 +3758,5 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7991167277800786663, guid: 404509ca3f4088346ab6b58f3f5ba712,
-        type: 3}
-      propertyPath: onParsedGesture.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2122240119}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404509ca3f4088346ab6b58f3f5ba712, type: 3}

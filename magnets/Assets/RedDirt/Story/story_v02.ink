@@ -2,21 +2,18 @@ VAR ending = 0
 
 -> entrance
 
-
  ========= entrance =========
  
 {stopping:
-    - I'm in the parking lot on the end of my street, and I'm about to retrace my steps into the woods. I know the traces I left before in the path will help me find my way. I must take a deep breath, then enter from where I left the path I was following then. I am sure I will find what I am looking for there. #entrance00
+    - I'm in the parking lot on the end of my street, and I'm about to retrace my steps into the woods. I take a deep breath and then I’ll enter the path from where I left it. I am sure I will find what I am looking for there. #entrance00
     - I believe it is time to enter the path into the woods. #entrance01
 }
 
 * [forward]
     The cool shade of the trees licks the skin on my arms as I move in. #entrance02
     -> stream
-    
 + [default]
     -> entrance
-
 
  ========= stream =========
 
@@ -28,14 +25,11 @@ VAR ending = 0
 * [forward] 
     I want to go ahead, but the river is blocking the way.  #stream02
     -> stream
-    
 * [remember]
     I remember a sequence of steps and stumble my way across the river. When I last crossed here, I lost my sandals. I had to walk all the way home, barefoot over dirt, gravel and then summer-sun-hot asphalt. In the middle of the way, it rained, and I could feel the street cooling down under my feet. #stream03
     -> rock
-    
 + [default]
     -> stream
-    
 
  ========= rock =========
  
@@ -53,7 +47,6 @@ VAR ending = 0
 * [down]
     I move the rock to the side and reveal some dirt and gravel, wet and easy enough to dig with my hands. I find the book my father hid there many years ago, inside a plastic bag. I take it with me along the path, even though there are still people out there wanting to destroy it. #rock04
     -> hill
-
 + [default]
     -> rock
 
@@ -68,11 +61,9 @@ VAR ending = 0
  * [forward]
     Forward where? There is no opening at the edges of the clearing. There is no clear way forward. #hill02
     -> hill
-    
 * [remember]
     I take a couple deep breaths. The sun is high right now. I almost can't find my shadow. I miss this sensation of being pressed down by hot light, its dry feeling in the skin. #hill03
     -> hill
-
 * [down]
     I sit down to rest, and then lie down. Maybe I should stay here longer. #hill04
     -> hill
@@ -80,10 +71,8 @@ VAR ending = 0
 * [stay]
     I nap. When I wake up, I walk around the corners of the clearing, its borders. After a while, I see what looks like a house far into the forest. The distance is not clear, but I know it. That is where I need to be. #hill05
     -> farm
-    
 + [default]
     -> hill
-
 
  ========= farm =========
 
@@ -103,24 +92,20 @@ VAR ending = 0
     ~ ending++ 
     I approach the farm house. The doors and windows are closed. The small garden to the side is dry, the orange trees are hanging on, but look a bit tired. The dirt on the ground feels different. #farm04
     -> farm
-    
 * [remember]
     ~ ending++
     This is my grandmother's place. Last time I saw it, I was just a kid, maybe a young adult. It looks smaller now. I walk around the building, no one's here. I find a spot on the ground that looks like what I'm searching for.  #farm05
     -> farm
-
 * { ending > 1 } 
     [down]
     ~ ending++ 
     I walk with my eyes fixed on the ground. I can still recall every nook and cranny. Some rocks moved, I guess. I kneel by a red patch of dirt and start digging. I take small clumps of soil, grass roots sliding through my fingers.  #farm06
     -> farm
-
 * { ending > 2 } 
     [stay]
     ~ ending++
     I take the small seed I've been carrying in my pocket and hold it in my hand. It will stay here. #farm07
     -> farm
-
 + [default]
     -> farm
 
