@@ -44,4 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trainingSet: {fileID: 11400000, guid: 425457aa4f902f44894e27c58c0b8b9f, type: 2}
+  oneDollarTrainingSet: {fileID: 11400000, guid: 9d698b1ca643d9a40a3002ac8431b7a0,
+    type: 2}
   discard: []
+  loadStartScene: 0
+  showTextSetting: 0

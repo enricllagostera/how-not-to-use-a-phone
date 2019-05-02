@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/RedDirt/Scenes/Preload.unity
     guid: 2a05ba0550fed92438bfc71638381ecb
-  - enabled: 1
+  - enabled: 0
     path: Assets/RedDirt/Scenes/StartMenu.unity
     guid: 35058910836a0a744a23464de2cc3a8a
   - enabled: 1
     path: Assets/RedDirt/Scenes/ConfigMenu.unity
     guid: 560b22ccaa263444780dd836475b4987
-  - enabled: 1
+  - enabled: 0
     path: Assets/RedDirt/Scenes/Story.unity
     guid: c00e78b6204058e4888d7080b424fa8a
   - enabled: 0

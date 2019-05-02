@@ -31,8 +31,30 @@ namespace RedDirt
         private bool justFinishedShowingLine;
         public Magnets.MagneticGestureReader reader;
 
+        public Magnets.MagneticOneDollar readerOneDollar;
+
         #region [PublicAPI]
-        public void ParseGestureChoice(Result gestureResult)
+        public void ParseGestureChoice(DollarOne.Result gestureResult)
+        {
+            if (waitingForChoice)
+            {
+                for (int i = 0; i < inkStory.currentChoices.Count; i++)
+                {
+                    if (gestureResult.Match != null)
+                    {
+                        if (gestureResult.Match.name == inkStory.currentChoices[i].text.ToLower() && gestureResult.Score > gestureScoreThreshold)
+                        {
+                            ChooseChoice(i);
+                            return;
+                        }
+                    }
+
+                }
+                // did not find any choice, picks last as default
+                ChooseChoice(inkStory.currentChoices.Count - 1);
+            }
+        }
+        public void ParseGestureChoice(PDollarGestureRecognizer.Result gestureResult)
         {
             if (waitingForChoice)
             {

@@ -9,6 +9,7 @@ namespace RedDirt
     public class Registry : Singleton<Registry>
     {
         public TrainingSet trainingSet;
+        public OneDollarTrainingSet oneDollarTrainingSet;
 
         [Header("Clean-up objects")]
         public List<GameObject> discard;

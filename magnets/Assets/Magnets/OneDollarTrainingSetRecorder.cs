@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DollarOne;
 using PDollarGestureRecognizer;
 using RedDirt;
 using UnityEngine;
@@ -8,14 +9,15 @@ using UnityEngine.EventSystems;
 
 namespace Magnets
 {
-    public class TrainingSetRecorder : MonoBehaviour
+    public class OneDollarTrainingSetRecorder : MonoBehaviour
     {
         public KeyCode recordKey;
 
-        public TrainingSet trainingSetAsset;
+        public OneDollarTrainingSet trainingSetAsset;
+
         public UnityEvent onStartedRecording, onFinishedRecording;
 
-        private List<Point> points;
+        private List<Vector2> points;
         private bool isRecording;
         private string targetGestureName;
         private int strokeId;
@@ -38,12 +40,13 @@ namespace Magnets
             // has a recorded training set
             if (points.Count > 0)
             {
-                var repeated = trainingSetAsset.allGestures.Find(g => g.Name == targetGestureName);
+                var repeated = trainingSetAsset.allPatterns.Find(g => g.name == targetGestureName);
                 if (repeated != null)
                 {
-                    trainingSetAsset.allGestures.Remove(repeated);
+                    trainingSetAsset.allPatterns.Remove(repeated);
                 }
-                trainingSetAsset.allGestures.Add(new Gesture(points.ToArray(), targetGestureName));
+                var temp = new Unistroke(targetGestureName, points);
+                trainingSetAsset.allPatterns.Add(temp);
             }
             onFinishedRecording?.Invoke();
             isRecording = false;
@@ -56,15 +59,15 @@ namespace Magnets
 
         private void Awake()
         {
-            points = new List<Point>();
+            points = new List<Vector2>();
             isRecording = false;
-            trainingSetAsset = Registry.Instance.trainingSet;
+            trainingSetAsset = Registry.Instance.oneDollarTrainingSet;
         }
         void Update()
         {
             if (isRecording)
             {
-                points.Add(new Point(inputValue.y, inputValue.z, strokeId));
+                points.Add(new Vector2(inputValue.y, inputValue.z));
             }
             if (Input.GetKeyDown(recordKey))
             {
